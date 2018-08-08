@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Unknot: Mauricio Tec on The Unknot: Mauricio Tec</title>
+    <link>/</link>
+    <description>Recent content in The Unknot: Mauricio Tec on The Unknot: Mauricio Tec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 20 Apr 2016 00:00:00 -0500</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Adaptive Rejection Sampling</title>
+      <link>/project/adaptive-rejection-sampling/</link>
+      <pubDate>Wed, 08 Aug 2018 13:23:42 -0500</pubDate>
+      
+      <guid>/project/adaptive-rejection-sampling/</guid>
+      <description>&lt;p&gt;AdaptiveRejectionSampling&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Non-parametric Density Estimation with Particle Learning</title>
+      <link>/project/pldensity/</link>
+      <pubDate>Wed, 08 Aug 2018 13:23:42 -0500</pubDate>
+      
+      <guid>/project/pldensity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Beginning</title>
+      <link>/post/the-beginning/</link>
+      <pubDate>Tue, 07 Aug 2018 21:19:50 -0500</pubDate>
+      
+      <guid>/post/the-beginning/</guid>
+      <description>
+
+&lt;p&gt;I sincerely hope that this &lt;a href=&#34;https://gohugo.io/&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt; website is&amp;ndash;finally&amp;ndash;the beginning of the blog I&amp;rsquo;ve been searching for a long time. Every year or so &amp;lsquo;I feel it&amp;rsquo;s time&amp;rsquo;, but I&amp;rsquo;m am always detained by the boredom of the existing technology: neither I want to use log-in solutions such as &lt;em&gt;Wordpress&lt;/em&gt;, nor I want to spend years writing html code, just to communicate a simple thought.&lt;/p&gt;
+
+&lt;h4 id=&#34;knots-and-the-name-of-this-blog&#34;&gt;Knots and the name of this blog&amp;hellip;&lt;/h4&gt;
+
+&lt;p&gt;Before becoming a PhD student, I spent a some time thinking about geometry and &lt;a href=&#34;https://en.wikipedia.org/wiki/Knot_theory&#34; target=&#34;_blank&#34;&gt;knots&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Knots are closed curves embedded in the 3-dimensional sphere $
+\mathbb{S}^3$, which is topologically equivalent to the usual 3-dimensional space $\mathbb{R}^3$, but where there is an unseen point $\{*\}$ where all ends meet. That is, no matter what direction you take, in the infinity you&amp;rsquo;ll arrive to the same place.&lt;/p&gt;
+
+&lt;p&gt;Every knot can be visually represented with a &lt;a href=&#34;https://en.wikipedia.org/wiki/Knot_theory#Knot_diagrams&#34; target=&#34;_blank&#34;&gt;knot diagram&lt;/a&gt;. Below are three diagrams of my favourite knot: &lt;em&gt;the unknot&lt;/em&gt;.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&#34;/img/the-beginning/unknot.png&#34; alt=&#34;unknot image&#34; width=&#34;300&#34;&gt; 
+ &lt;figcaption&gt;&lt;center&gt;3 knot diagrams of the unknot.&lt;br/&gt;A knot diagram is 2d-projection of a knot.&lt;/center&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Although its formal mathematical definition it&amp;rsquo;s not as simple as one would imagine, intuitively, the unknot is a lasso or circle, which is technically not a knot, but we like to think of it as the simplest knot.&lt;/p&gt;
+
+&lt;p&gt;Surprisingly, recognising the unknot from a diagram is not a simple problem. In fact, it remains a major &lt;a href=&#34;https://en.wikipedia.org/wiki/Unknotting_problem&#34; target=&#34;_blank&#34;&gt;unresolved issue&lt;/a&gt; to determine if the problem admits a polynomial time solution! What I find fascinating about the unknot is that it shows yet again that simplicity is not easy to find.&lt;/p&gt;
+
+&lt;h4 id=&#34;the-unknot-and-science&#34;&gt;The Unknot and Science&lt;/h4&gt;
+
+&lt;p&gt;In Academia, we tend to present the unknot as a line: although we could choose to do our Science in a more honest fashion&amp;ndash;as the circle diagram&amp;ndash;we like to be a little clever. So we draw our unknots as straight lines, and demand from the audience to visualise the point at infinity, so that we look somewhat smarter.&lt;/p&gt;
+
+&lt;p&gt;Real-world, on the other hand, is pretty tangled, and while the underlying truth is simple, finding it is not a polynomial time task. As practitioners, we spent years untangling diagrams, so that we arrive at the unknot in its circle form.&lt;/p&gt;
+
+&lt;p&gt;In this blog I will try to present the unknot as a circle, simple and beautiful as it is.&lt;/p&gt;
+
+&lt;p&gt;Anyways, I have a good feeling about this blog&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
