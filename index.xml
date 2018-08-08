@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Unknot: Mauricio Tec on The Unknot: Mauricio Tec</title>
-    <link>/</link>
+    <link>https://mauriciogtec.github.io/</link>
     <description>Recent content in The Unknot: Mauricio Tec on The Unknot: Mauricio Tec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,29 +12,29 @@
     
     <item>
       <title>Adaptive Rejection Sampling</title>
-      <link>/project/adaptive-rejection-sampling/</link>
+      <link>https://mauriciogtec.github.io/project/adaptive-rejection-sampling/</link>
       <pubDate>Wed, 08 Aug 2018 13:23:42 -0500</pubDate>
       
-      <guid>/project/adaptive-rejection-sampling/</guid>
+      <guid>https://mauriciogtec.github.io/project/adaptive-rejection-sampling/</guid>
       <description>&lt;p&gt;AdaptiveRejectionSampling&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Non-parametric Density Estimation with Particle Learning</title>
-      <link>/project/pldensity/</link>
+      <link>https://mauriciogtec.github.io/project/pldensity/</link>
       <pubDate>Wed, 08 Aug 2018 13:23:42 -0500</pubDate>
       
-      <guid>/project/pldensity/</guid>
+      <guid>https://mauriciogtec.github.io/project/pldensity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The Beginning</title>
-      <link>/post/the-beginning/</link>
+      <link>https://mauriciogtec.github.io/post/the-beginning/</link>
       <pubDate>Tue, 07 Aug 2018 21:19:50 -0500</pubDate>
       
-      <guid>/post/the-beginning/</guid>
+      <guid>https://mauriciogtec.github.io/post/the-beginning/</guid>
       <description>
 
 &lt;p&gt;I sincerely hope that this &lt;a href=&#34;https://gohugo.io/&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt; website is&amp;ndash;finally&amp;ndash;the beginning of the blog I&amp;rsquo;ve been searching for a long time. Every year or so &amp;lsquo;I feel it&amp;rsquo;s time&amp;rsquo;, but I&amp;rsquo;m am always detained by the boredom of the existing technology: neither I want to use log-in solutions such as &lt;em&gt;Wordpress&lt;/em&gt;, nor I want to spend years writing html code, just to communicate a simple thought.&lt;/p&gt;
@@ -49,7 +49,7 @@
 &lt;p&gt;Every knot can be visually represented with a &lt;a href=&#34;https://en.wikipedia.org/wiki/Knot_theory#Knot_diagrams&#34; target=&#34;_blank&#34;&gt;knot diagram&lt;/a&gt;. Below are three diagrams of my favourite knot: &lt;em&gt;the unknot&lt;/em&gt;.&lt;/p&gt;
 
 &lt;figure&gt;
-&lt;img src=&#34;/img/the-beginning/unknot.png&#34; alt=&#34;unknot image&#34; width=&#34;300&#34;&gt; 
+&lt;img src=&#34;https://mauriciogtec.github.io/img/the-beginning/unknot.png&#34; alt=&#34;unknot image&#34; width=&#34;300&#34;&gt; 
  &lt;figcaption&gt;&lt;center&gt;3 knot diagrams of the unknot.&lt;br/&gt;A knot diagram is 2d-projection of a knot.&lt;/center&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 

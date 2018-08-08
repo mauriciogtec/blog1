@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on The Unknot: Mauricio Tec</title>
-    <link>/project/</link>
+    <link>https://mauriciogtec.github.io/project/</link>
     <description>Recent content in Projects on The Unknot: Mauricio Tec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Wed, 08 Aug 2018 13:23:42 -0500</lastBuildDate>
     
-	<atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mauriciogtec.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Adaptive Rejection Sampling</title>
-      <link>/project/adaptive-rejection-sampling/</link>
+      <link>https://mauriciogtec.github.io/project/adaptive-rejection-sampling/</link>
       <pubDate>Wed, 08 Aug 2018 13:23:42 -0500</pubDate>
       
-      <guid>/project/adaptive-rejection-sampling/</guid>
+      <guid>https://mauriciogtec.github.io/project/adaptive-rejection-sampling/</guid>
       <description>AdaptiveRejectionSampling</description>
     </item>
     
     <item>
       <title>Non-parametric Density Estimation with Particle Learning</title>
-      <link>/project/pldensity/</link>
+      <link>https://mauriciogtec.github.io/project/pldensity/</link>
       <pubDate>Wed, 08 Aug 2018 13:23:42 -0500</pubDate>
       
-      <guid>/project/pldensity/</guid>
+      <guid>https://mauriciogtec.github.io/project/pldensity/</guid>
       <description></description>
     </item>
     
