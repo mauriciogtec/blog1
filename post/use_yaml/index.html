@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.45" />
+  <meta name="author" content="Mauricio Tec">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="A common issue when starting a new project involving data is choosing a format in which to store the data.
+The answer to the question of course depends on several aspects: the sources, the data types, the purpose, and its relational structure.
+While modern approaches in Big Data endorse the strategy of first extracting high volumes of raw data and worry about processing later; in here we shall be concerned with the opposite case, when data has to be captured manually by a human team, and we don&rsquo;t want to spend hours later trying to make it amenable for the computer to read.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://mauriciogtec.github.io/post/use_yaml/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#0095eb">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/mycss.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-123676799-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://mauriciogtec.github.io/index.xml" type="application/rss+xml" title="The Unknot: Mauricio Tec">
+  <link rel="feed" href="https://mauriciogtec.github.io/index.xml" type="application/rss+xml" title="The Unknot: Mauricio Tec">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://mauriciogtec.github.io/post/use_yaml/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@mauriciogtec">
+  <meta property="twitter:creator" content="@mauriciogtec">
+  
+  <meta property="og:site_name" content="The Unknot: Mauricio Tec">
+  <meta property="og:url" content="https://mauriciogtec.github.io/post/use_yaml/">
+  <meta property="og:title" content="Use YAML! | The Unknot: Mauricio Tec">
+  <meta property="og:description" content="A common issue when starting a new project involving data is choosing a format in which to store the data.
+The answer to the question of course depends on several aspects: the sources, the data types, the purpose, and its relational structure.
+While modern approaches in Big Data endorse the strategy of first extracting high volumes of raw data and worry about processing later; in here we shall be concerned with the opposite case, when data has to be captured manually by a human team, and we don&rsquo;t want to spend hours later trying to make it amenable for the computer to read.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-09-11T14:14:07-05:00">
+  
+  <meta property="article:modified_time" content="2018-09-11T14:14:07-05:00">
+  
+
+  
+
+  
+
+  <title>Use YAML! | The Unknot: Mauricio Tec</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">The Unknot: Mauricio Tec</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#teaching">
+            
+            <span>Teaching</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Use YAML!</h1>
+
+    
+
+<div class="article-metadata">
+
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-09-11 14:14:07 -0500 CDT" itemprop="datePublished">
+    <time datetime="2018-09-11 14:14:07 -0500 CDT" itemprop="dateModified">
+      Sep 11, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Mauricio Tec">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    8 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="https://mauriciogtec.github.io/post/use_yaml/#disqus_thread"></a>
+  
+
+  
+  
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Use%20YAML%21&amp;url=https%3a%2f%2fmauriciogtec.github.io%2fpost%2fuse_yaml%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmauriciogtec.github.io%2fpost%2fuse_yaml%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fmauriciogtec.github.io%2fpost%2fuse_yaml%2f&amp;title=Use%20YAML%21"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fmauriciogtec.github.io%2fpost%2fuse_yaml%2f&amp;title=Use%20YAML%21"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Use%20YAML%21&amp;body=https%3a%2f%2fmauriciogtec.github.io%2fpost%2fuse_yaml%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>A common issue when starting a new project involving data is choosing a format in which to store the data.</p>
+
+<p>The answer to the question of course depends on several aspects: the sources, the data types, the purpose, and its relational structure.</p>
+
+<p>While modern approaches in Big Data endorse the strategy of first extracting high volumes of raw data and worry about processing later; in here we shall be concerned with the opposite case, when data has to be captured manually by a human team, and we don&rsquo;t want to spend hours later trying to make it amenable for the computer to read.</p>
+
+<p>I want to present a basic introduction to the YAML (yet-another-markup-language) approach to keeping data records. It&rsquo;s advantages is that
+- it is machine-readable
+- it is human-readable
+- ergo, human-writable too
+- used widely nowadays
+- can be transfored to other common data serialization formats such as JSON</p>
+
+<p>For my example I will use Python to &lsquo;parse&rsquo; the YAML format. The idea is to show by example how a file stored in this format is readable by the machine.</p>
+
+<p>Our task is to use YAML to serialize, records of annotated bibliography. Note that there are other forms recording bibliograhy, such bibtex, but I claim that YAML requires much less effort.</p>
+
+<h2 id="a-simple-example">A simple example</h2>
+
+<p>Below are the contents of a simple YAML file named <code>example_record.yaml</code>. This is a textfile, pretty much like a file ending with <code>.txt</code> which you have most likely used before and opened with the Notepad if you are a Windows user. This file can also be opened with the Notepad, but it ends with <code>.yaml</code> instead of <code>.txt</code>. Note that the colors are not part of the file, but of the display engine we are using here.</p>
+
+<pre><code class="language-yaml"># filename: example_record.yaml
+# description: a simple yaml for annotated bibliography
+key: &quot;1,000Days_2018_What_We're_Watching_in_Congress&quot; 
+added_by: &quot;John Doe&quot;
+title: &quot;Congress is Back in Session: Here's What We're Watching&quot;
+author:  &quot;1,000 Days&quot;
+publisher: &quot;https://thousanddays.org/congress-is-back-in-session-heres-what-were-watching/&quot;
+publisher_type: &quot;website&quot; 
+date: 2018-06-05 
+accessed: 2018-09-08
+keywords: 
+  - &quot;Congress&quot;
+  - &quot;Farm Bill&quot;
+  - &quot;Supplemental Nutrition Assistance Program&quot;
+  - &quot;SNAP&quot;
+  - &quot;The Special Supplemental Nutrition Program for Women&quot;
+  - &quot;Infants and Children&quot;
+  - &quot;WIC, 2020-2025 Dietary Guidelines for Americans&quot;
+  - &quot;DGAs, Maternal Mortality&quot;
+  - &quot;Children’s Health Insurance Program&quot;
+  - &quot;CHIP, Medicaid&quot;
+  - &quot;public charge&quot;
+summary: |
+  This webpage produced by the advocacy group 1,000 Days provides a summary of Congressional items that the group is keeping an eye on during the summer of 2018. These items are:
+  1)     Changes to SNAP in the Farm Bill
+  a.    House of Representatives put forth a Farm Bill with significant reduction to SNAP that would reduce food security for low-income families in the US. The Senate has a more balanced bill that is set to be marked up on June 13
+  2)     Funding for WIC
+  a.    WIC is funded through the annual appropriation process. Both House and Senate appropriation bills include less FY19 WIC funding than FY18. Breastfeeding peer counselor funding in both bills remains at $60 million. 
+  3)     New Dietary Guidelines
+  a.    House and Senate support funding of $12.3 million to USDA to develop DGAs. 
+  4)     Maternal Mortality Legislation
+  a.    Both House and Senate have members who are introducing legislation on addressing high rates of maternal mortality in the US. The legislation will also focus on racial and ethnic disparities in maternal mortality rates in the US.
+  5)     Proposed Cuts to CHIP
+  a.    Trump has threatened to rescind $7 billion of funding to CHIP that was signed into law and passed by both the Senate and House. 
+  6)     Threats to Immigrant Families
+  a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit immigrant access to benefits such as WIC and Medicaid is currently pending review.
+  advocacy_facts: |
+  In 2013, Congress mandated that the United States Department of Agriculture (USDA) and the United States Department of Health and Human Services (HHS) include pregnant women and young children as part of the 2020-2025 Dietary Guidelines for Americans (DGAs). The updated DGAs will inform federal nutrition programs that reach young children and their families, as well as serve as an important reference point for physicians, nutrition counselors, early childcare providers, among others.  – 1,000 Days
+additional_sources: 
+  - 'https://thousanddays.org/draft-house-farm-bill-will-harm-families-and-children/'
+</code></pre>
+
+<p>We now show Python code that reads the above file</p>
+
+<pre><code class="language-python">import yaml # library for YAML support in python
+</code></pre>
+
+<pre><code class="language-python">with open(&quot;example.yaml&quot;, &quot;r&quot;) as file:
+    record = yaml.load(file)
+</code></pre>
+
+<pre><code class="language-python">print(record['title'])
+</code></pre>
+
+<pre><code>Congress is Back in Session: Here's What We're Watching
+</code></pre>
+
+<pre><code class="language-python">print(record['keywords'])
+</code></pre>
+
+<pre><code>['Congress', 'Farm Bill', 'Supplemental Nutrition Assistance Program', 'SNAP', 'The Special Supplemental Nutrition Program for Women', 'Infants and Children', 'WIC, 2020-2025 Dietary Guidelines for Americans', 'DGAs, Maternal Mortality', 'Childrenâ€™s Health Insurance Program', 'CHIP, Medicaid', 'public charge']
+</code></pre>
+
+<pre><code class="language-python">print(record['summary'])
+</code></pre>
+
+<pre><code>This webpage produced by the advocacy group 1,000 Days provides a summary of Congressional items that the group is keeping an eye on during the summer of 2018. These items are:
+1)     Changes to SNAP in the Farm Bill
+a.    House of Representatives put forth a Farm Bill with significant reduction to SNAP that would reduce food security for low-income families in the US. The Senate has a more balanced bill that is set to be marked up on June 13
+2)     Funding for WIC
+a.    WIC is funded through the annual appropriation process. Both House and Senate appropriation bills include less FY19 WIC funding than FY18. Breastfeeding peer counselor funding in both bills remains at $60 million. 
+3)     New Dietary Guidelines
+a.    House and Senate support funding of $12.3 million to USDA to develop DGAs. 
+4)     Maternal Mortality Legislation
+a.    Both House and Senate have members who are introducing legislation on addressing high rates of maternal mortality in the US. The legislation will also focus on racial and ethnic disparities in maternal mortality rates in the US.
+5)     Proposed Cuts to CHIP
+a.    Trump has threatened to rescind $7 billion of funding to CHIP that was signed into law and passed by both the Senate and House. 
+6)     Threats to Immigrant Families
+a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit immigrant access to benefits such as WIC and Medicaid is currently pending review.
+advocacy_facts: |
+In 2013, Congress mandated that the United States Department of Agriculture (USDA) and the United States Department of Health and Human Services (HHS) include pregnant women and young children as part of the 2020-2025 Dietary Guidelines for Americans (DGAs). The updated DGAs will inform federal nutrition programs that reach young children and their families, as well as serve as an important reference point for physicians, nutrition counselors, early childcare providers, among others.  â€“ 1,000 Days
+</code></pre>
+
+<pre><code class="language-python">record['date']
+</code></pre>
+
+<pre><code>datetime.date(2018, 6, 5)
+</code></pre>
+
+<pre><code class="language-python">record['date'].year
+</code></pre>
+
+<pre><code>2018
+</code></pre>
+
+<h2 id="how-does-it-work">How does it work?</h2>
+
+<p>There are the things that can be input in a YAML:
+- &ldquo;<em>key: value</em>&rdquo; pairs
+- <em>lists</em>: denoted with brackets <code>[x1, x2, ..., xn]</code> or with indented dashes as <code>keywords</code> in the previous example.
+- <em>value</em> can be atomic such as strings, numbers or dates, or it can be a list of these atomic elements, or even a list of &ldquo;key: value&rdquo; pairs</p>
+
+<p>When a computer program such as Python reads YAML it maps each value to the correct type.</p>
+
+<p><strong>Important note about keys</strong>: A good citizenship practice is too <strong>NEVER</strong>:
+- start with symbols or numbers
+- include white spaces</p>
+
+<pre><code class="language-yaml"># filename: example2.yml
+# description: example for data types
+# comments are indicated  with pounds and ignored by compiler
+anumber: 2
+anothernumber: 3.1416
+astring: &quot;hello, world!&quot;
+anotherstring: noproblemhere # if there aren't spaces it works without quotation marks
+adate: 2018-09-11 # yyyy-mm-dd best format!
+alist:
+  - these
+  - is
+  - a
+  - list
+  - with 
+  - name
+anotherlist = ['can', 'use', 'brackets']
+adict: # watch the indentation!
+  key1: value1
+  key2: value2
+  key3:
+    - value31
+    - value32
+</code></pre>
+
+<pre><code class="language-python">with open(&quot;example2.yaml&quot;, &quot;r&quot;) as file:
+    record2 = yaml.load(file)
+</code></pre>
+
+<pre><code class="language-python">display(record2)
+</code></pre>
+
+<pre><code>{'anumber': 2,
+ 'anothernumber': 3.1416,
+ 'astring': 'hello, world!',
+ 'anotherstring': 'noproblemhere',
+ 'adate': datetime.date(2018, 9, 11),
+ 'alist': ['these', 'is', 'a', 'list', 'with', 'name'],
+ 'anotherlist': ['can', 'use', 'brackets'],
+ 'adict': {'key1': 'value1', 'key2': 'value2', 'key3': ['value31', 'value32']}}
+</code></pre>
+
+<p>Let&rsquo;s the data types that Python assigns to the read objects.</p>
+
+<pre><code class="language-python">for key, val in record2.items():
+    print(key, &quot;has data type: &quot;, type(val))
+</code></pre>
+
+<pre><code>anumber has data type:  &lt;class 'int'&gt;
+anothernumber has data type:  &lt;class 'float'&gt;
+astring has data type:  &lt;class 'str'&gt;
+anotherstring has data type:  &lt;class 'str'&gt;
+adate has data type:  &lt;class 'datetime.date'&gt;
+alist has data type:  &lt;class 'list'&gt;
+anotherlist has data type:  &lt;class 'list'&gt;
+adict has data type:  &lt;class 'dict'&gt;
+</code></pre>
+
+<h2 id="long-texts">Long texts</h2>
+
+<p>There are two ways to deal with long texts. Collapsing lines, when the text is really a long line or paragraph&rsquo;, or respecting format. Here&rsquo;a an example.</p>
+
+<pre><code class="language-yaml"># filename: example3.yml
+# description: long strings
+include_newlines: |
+  exactly as you see
+  will appear these three
+  lines of poetry
+fold_newlines: &gt;
+  this is really a
+  single line of text
+  despite appearances
+</code></pre>
+
+<pre><code class="language-python">with open(&quot;example3.yaml&quot;, &quot;r&quot;) as file:
+    longstrings = yaml.load(file)
+</code></pre>
+
+<pre><code class="language-python">print(longstrings['include_newlines'])
+</code></pre>
+
+<pre><code>exactly as you see
+will appear these three
+lines of poetry
+</code></pre>
+
+<pre><code class="language-python">print(longstrings['fold_newlines'])
+</code></pre>
+
+<pre><code>this is really a single line of text despite appearances
+</code></pre>
+
+<h3 id="more-than-one-record-per-file">More than one record per file</h3>
+
+<p>For some applications it can be useufl to have one big file for different records. That&rsquo;s no problem for YAML. Just separate them with <code>---</code> lines.</p>
+
+<pre><code class="language-yaml"># filename: example4.yml
+# description: a multi-record YAML
+---
+# starts record 1
+key11: value11
+key12: value12
+---
+# starts record 2
+key21: value21
+key22: value22
+# no need to add ---- again
+</code></pre>
+
+<pre><code class="language-python">with open(&quot;example4.yaml&quot;, &quot;r&quot;) as file:
+    multirecords = yaml.load_all(file)
+    for i, record in enumerate(multirecords):
+        print(&quot;This is record&quot;, i + 1)
+        display(record)
+</code></pre>
+
+<pre><code>This is record 1
+
+
+
+{'key11': 'value11', 'key12': 'value12'}
+
+
+This is record 2
+
+
+
+{'key21': 'value21', 'key22': 'value22'}
+</code></pre>
+
+    </div>
+
+    
+
+
+
+
+
+    
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "UA-123676799-1" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+
+    
+
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//UA-123676799-1.disqus.com/count.js" async></script>
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/julia.min.js"></script>
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c&#43;&#43;.min.js"></script>
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        CommonHTML: { linebreaks: { automatic: true } },
+        tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+        TeX: { noUndefined: { attributes: { mathcolor: 'red', mathbackground: '#FFEEEE', mathsize: '90%' } } },
+        messageStyle: 'none'
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

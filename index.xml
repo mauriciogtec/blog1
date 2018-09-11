@@ -11,6 +11,274 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Use YAML!</title>
+      <link>https://mauriciogtec.github.io/post/use_yaml/</link>
+      <pubDate>Tue, 11 Sep 2018 14:14:07 -0500</pubDate>
+      
+      <guid>https://mauriciogtec.github.io/post/use_yaml/</guid>
+      <description>
+
+&lt;p&gt;A common issue when starting a new project involving data is choosing a format in which to store the data.&lt;/p&gt;
+
+&lt;p&gt;The answer to the question of course depends on several aspects: the sources, the data types, the purpose, and its relational structure.&lt;/p&gt;
+
+&lt;p&gt;While modern approaches in Big Data endorse the strategy of first extracting high volumes of raw data and worry about processing later; in here we shall be concerned with the opposite case, when data has to be captured manually by a human team, and we don&amp;rsquo;t want to spend hours later trying to make it amenable for the computer to read.&lt;/p&gt;
+
+&lt;p&gt;I want to present a basic introduction to the YAML (yet-another-markup-language) approach to keeping data records. It&amp;rsquo;s advantages is that
+- it is machine-readable
+- it is human-readable
+- ergo, human-writable too
+- used widely nowadays
+- can be transfored to other common data serialization formats such as JSON&lt;/p&gt;
+
+&lt;p&gt;For my example I will use Python to &amp;lsquo;parse&amp;rsquo; the YAML format. The idea is to show by example how a file stored in this format is readable by the machine.&lt;/p&gt;
+
+&lt;p&gt;Our task is to use YAML to serialize, records of annotated bibliography. Note that there are other forms recording bibliograhy, such bibtex, but I claim that YAML requires much less effort.&lt;/p&gt;
+
+&lt;h2 id=&#34;a-simple-example&#34;&gt;A simple example&lt;/h2&gt;
+
+&lt;p&gt;Below are the contents of a simple YAML file named &lt;code&gt;example_record.yaml&lt;/code&gt;. This is a textfile, pretty much like a file ending with &lt;code&gt;.txt&lt;/code&gt; which you have most likely used before and opened with the Notepad if you are a Windows user. This file can also be opened with the Notepad, but it ends with &lt;code&gt;.yaml&lt;/code&gt; instead of &lt;code&gt;.txt&lt;/code&gt;. Note that the colors are not part of the file, but of the display engine we are using here.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# filename: example_record.yaml
+# description: a simple yaml for annotated bibliography
+key: &amp;quot;1,000Days_2018_What_We&#39;re_Watching_in_Congress&amp;quot; 
+added_by: &amp;quot;John Doe&amp;quot;
+title: &amp;quot;Congress is Back in Session: Here&#39;s What We&#39;re Watching&amp;quot;
+author:  &amp;quot;1,000 Days&amp;quot;
+publisher: &amp;quot;https://thousanddays.org/congress-is-back-in-session-heres-what-were-watching/&amp;quot;
+publisher_type: &amp;quot;website&amp;quot; 
+date: 2018-06-05 
+accessed: 2018-09-08
+keywords: 
+  - &amp;quot;Congress&amp;quot;
+  - &amp;quot;Farm Bill&amp;quot;
+  - &amp;quot;Supplemental Nutrition Assistance Program&amp;quot;
+  - &amp;quot;SNAP&amp;quot;
+  - &amp;quot;The Special Supplemental Nutrition Program for Women&amp;quot;
+  - &amp;quot;Infants and Children&amp;quot;
+  - &amp;quot;WIC, 2020-2025 Dietary Guidelines for Americans&amp;quot;
+  - &amp;quot;DGAs, Maternal Mortality&amp;quot;
+  - &amp;quot;Children’s Health Insurance Program&amp;quot;
+  - &amp;quot;CHIP, Medicaid&amp;quot;
+  - &amp;quot;public charge&amp;quot;
+summary: |
+  This webpage produced by the advocacy group 1,000 Days provides a summary of Congressional items that the group is keeping an eye on during the summer of 2018. These items are:
+  1)     Changes to SNAP in the Farm Bill
+  a.    House of Representatives put forth a Farm Bill with significant reduction to SNAP that would reduce food security for low-income families in the US. The Senate has a more balanced bill that is set to be marked up on June 13
+  2)     Funding for WIC
+  a.    WIC is funded through the annual appropriation process. Both House and Senate appropriation bills include less FY19 WIC funding than FY18. Breastfeeding peer counselor funding in both bills remains at $60 million. 
+  3)     New Dietary Guidelines
+  a.    House and Senate support funding of $12.3 million to USDA to develop DGAs. 
+  4)     Maternal Mortality Legislation
+  a.    Both House and Senate have members who are introducing legislation on addressing high rates of maternal mortality in the US. The legislation will also focus on racial and ethnic disparities in maternal mortality rates in the US.
+  5)     Proposed Cuts to CHIP
+  a.    Trump has threatened to rescind $7 billion of funding to CHIP that was signed into law and passed by both the Senate and House. 
+  6)     Threats to Immigrant Families
+  a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit immigrant access to benefits such as WIC and Medicaid is currently pending review.
+  advocacy_facts: |
+  In 2013, Congress mandated that the United States Department of Agriculture (USDA) and the United States Department of Health and Human Services (HHS) include pregnant women and young children as part of the 2020-2025 Dietary Guidelines for Americans (DGAs). The updated DGAs will inform federal nutrition programs that reach young children and their families, as well as serve as an important reference point for physicians, nutrition counselors, early childcare providers, among others.  – 1,000 Days
+additional_sources: 
+  - &#39;https://thousanddays.org/draft-house-farm-bill-will-harm-families-and-children/&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We now show Python code that reads the above file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import yaml # library for YAML support in python
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;with open(&amp;quot;example.yaml&amp;quot;, &amp;quot;r&amp;quot;) as file:
+    record = yaml.load(file)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(record[&#39;title&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Congress is Back in Session: Here&#39;s What We&#39;re Watching
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(record[&#39;keywords&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;[&#39;Congress&#39;, &#39;Farm Bill&#39;, &#39;Supplemental Nutrition Assistance Program&#39;, &#39;SNAP&#39;, &#39;The Special Supplemental Nutrition Program for Women&#39;, &#39;Infants and Children&#39;, &#39;WIC, 2020-2025 Dietary Guidelines for Americans&#39;, &#39;DGAs, Maternal Mortality&#39;, &#39;Childrenâ€™s Health Insurance Program&#39;, &#39;CHIP, Medicaid&#39;, &#39;public charge&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(record[&#39;summary&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;This webpage produced by the advocacy group 1,000 Days provides a summary of Congressional items that the group is keeping an eye on during the summer of 2018. These items are:
+1)     Changes to SNAP in the Farm Bill
+a.    House of Representatives put forth a Farm Bill with significant reduction to SNAP that would reduce food security for low-income families in the US. The Senate has a more balanced bill that is set to be marked up on June 13
+2)     Funding for WIC
+a.    WIC is funded through the annual appropriation process. Both House and Senate appropriation bills include less FY19 WIC funding than FY18. Breastfeeding peer counselor funding in both bills remains at $60 million. 
+3)     New Dietary Guidelines
+a.    House and Senate support funding of $12.3 million to USDA to develop DGAs. 
+4)     Maternal Mortality Legislation
+a.    Both House and Senate have members who are introducing legislation on addressing high rates of maternal mortality in the US. The legislation will also focus on racial and ethnic disparities in maternal mortality rates in the US.
+5)     Proposed Cuts to CHIP
+a.    Trump has threatened to rescind $7 billion of funding to CHIP that was signed into law and passed by both the Senate and House. 
+6)     Threats to Immigrant Families
+a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit immigrant access to benefits such as WIC and Medicaid is currently pending review.
+advocacy_facts: |
+In 2013, Congress mandated that the United States Department of Agriculture (USDA) and the United States Department of Health and Human Services (HHS) include pregnant women and young children as part of the 2020-2025 Dietary Guidelines for Americans (DGAs). The updated DGAs will inform federal nutrition programs that reach young children and their families, as well as serve as an important reference point for physicians, nutrition counselors, early childcare providers, among others.  â€“ 1,000 Days
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;record[&#39;date&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;datetime.date(2018, 6, 5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;record[&#39;date&#39;].year
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;2018
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;how-does-it-work&#34;&gt;How does it work?&lt;/h2&gt;
+
+&lt;p&gt;There are the things that can be input in a YAML:
+- &amp;ldquo;&lt;em&gt;key: value&lt;/em&gt;&amp;rdquo; pairs
+- &lt;em&gt;lists&lt;/em&gt;: denoted with brackets &lt;code&gt;[x1, x2, ..., xn]&lt;/code&gt; or with indented dashes as &lt;code&gt;keywords&lt;/code&gt; in the previous example.
+- &lt;em&gt;value&lt;/em&gt; can be atomic such as strings, numbers or dates, or it can be a list of these atomic elements, or even a list of &amp;ldquo;key: value&amp;rdquo; pairs&lt;/p&gt;
+
+&lt;p&gt;When a computer program such as Python reads YAML it maps each value to the correct type.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Important note about keys&lt;/strong&gt;: A good citizenship practice is too &lt;strong&gt;NEVER&lt;/strong&gt;:
+- start with symbols or numbers
+- include white spaces&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# filename: example2.yml
+# description: example for data types
+# comments are indicated  with pounds and ignored by compiler
+anumber: 2
+anothernumber: 3.1416
+astring: &amp;quot;hello, world!&amp;quot;
+anotherstring: noproblemhere # if there aren&#39;t spaces it works without quotation marks
+adate: 2018-09-11 # yyyy-mm-dd best format!
+alist:
+  - these
+  - is
+  - a
+  - list
+  - with 
+  - name
+anotherlist = [&#39;can&#39;, &#39;use&#39;, &#39;brackets&#39;]
+adict: # watch the indentation!
+  key1: value1
+  key2: value2
+  key3:
+    - value31
+    - value32
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;with open(&amp;quot;example2.yaml&amp;quot;, &amp;quot;r&amp;quot;) as file:
+    record2 = yaml.load(file)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;display(record2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;{&#39;anumber&#39;: 2,
+ &#39;anothernumber&#39;: 3.1416,
+ &#39;astring&#39;: &#39;hello, world!&#39;,
+ &#39;anotherstring&#39;: &#39;noproblemhere&#39;,
+ &#39;adate&#39;: datetime.date(2018, 9, 11),
+ &#39;alist&#39;: [&#39;these&#39;, &#39;is&#39;, &#39;a&#39;, &#39;list&#39;, &#39;with&#39;, &#39;name&#39;],
+ &#39;anotherlist&#39;: [&#39;can&#39;, &#39;use&#39;, &#39;brackets&#39;],
+ &#39;adict&#39;: {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;, &#39;key3&#39;: [&#39;value31&#39;, &#39;value32&#39;]}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s the data types that Python assigns to the read objects.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;for key, val in record2.items():
+    print(key, &amp;quot;has data type: &amp;quot;, type(val))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;anumber has data type:  &amp;lt;class &#39;int&#39;&amp;gt;
+anothernumber has data type:  &amp;lt;class &#39;float&#39;&amp;gt;
+astring has data type:  &amp;lt;class &#39;str&#39;&amp;gt;
+anotherstring has data type:  &amp;lt;class &#39;str&#39;&amp;gt;
+adate has data type:  &amp;lt;class &#39;datetime.date&#39;&amp;gt;
+alist has data type:  &amp;lt;class &#39;list&#39;&amp;gt;
+anotherlist has data type:  &amp;lt;class &#39;list&#39;&amp;gt;
+adict has data type:  &amp;lt;class &#39;dict&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;long-texts&#34;&gt;Long texts&lt;/h2&gt;
+
+&lt;p&gt;There are two ways to deal with long texts. Collapsing lines, when the text is really a long line or paragraph&amp;rsquo;, or respecting format. Here&amp;rsquo;a an example.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# filename: example3.yml
+# description: long strings
+include_newlines: |
+  exactly as you see
+  will appear these three
+  lines of poetry
+fold_newlines: &amp;gt;
+  this is really a
+  single line of text
+  despite appearances
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;with open(&amp;quot;example3.yaml&amp;quot;, &amp;quot;r&amp;quot;) as file:
+    longstrings = yaml.load(file)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(longstrings[&#39;include_newlines&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;exactly as you see
+will appear these three
+lines of poetry
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(longstrings[&#39;fold_newlines&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;this is really a single line of text despite appearances
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;more-than-one-record-per-file&#34;&gt;More than one record per file&lt;/h3&gt;
+
+&lt;p&gt;For some applications it can be useufl to have one big file for different records. That&amp;rsquo;s no problem for YAML. Just separate them with &lt;code&gt;---&lt;/code&gt; lines.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# filename: example4.yml
+# description: a multi-record YAML
+---
+# starts record 1
+key11: value11
+key12: value12
+---
+# starts record 2
+key21: value21
+key22: value22
+# no need to add ---- again
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;with open(&amp;quot;example4.yaml&amp;quot;, &amp;quot;r&amp;quot;) as file:
+    multirecords = yaml.load_all(file)
+    for i, record in enumerate(multirecords):
+        print(&amp;quot;This is record&amp;quot;, i + 1)
+        display(record)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;This is record 1
+
+
+
+{&#39;key11&#39;: &#39;value11&#39;, &#39;key12&#39;: &#39;value12&#39;}
+
+
+This is record 2
+
+
+
+{&#39;key21&#39;: &#39;value21&#39;, &#39;key22&#39;: &#39;value22&#39;}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Julia Package: Adaptive Rejection Sampling</title>
       <link>https://mauriciogtec.github.io/project/adaptive-rejection-sampling/</link>
       <pubDate>Wed, 08 Aug 2018 13:23:42 -0500</pubDate>
