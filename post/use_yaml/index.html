@@ -41,7 +41,7 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
   
     
     
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css">
     
   
   
@@ -305,6 +305,18 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
   
   
   
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="https://mauriciogtec.github.io/categories/lbj/">LBJ</a
+    >, 
+    
+    <a href="https://mauriciogtec.github.io/categories/ut-austin/">UT Austin</a
+    >
+    
+  </span>
+  
   
 
   
@@ -363,7 +375,9 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
 
 <p>While modern approaches in Big Data endorse the strategy of first extracting high volumes of raw data and worry about processing later; in here we shall be concerned with the opposite case, when data has to be captured manually by a human team, and we don&rsquo;t want to spend hours later trying to make it amenable for the computer to read.</p>
 
-<p>I want to present a basic introduction to the YAML (yet-another-markup-language) approach to keeping data records. It&rsquo;s advantages is that
+<p>You are probably familiar with CSVs, because you can create CSVs in Excel, which makes them quite handy. However, they are mainly useful for highly structured data having a fixed known number of columns per record.</p>
+
+<p>I want to present a basic introduction to YAML (yet-another-markup-language), a simple approach to keeping data records. It&rsquo;s advantages are
 - it is machine-readable
 - it is human-readable
 - ergo, human-writable too
@@ -380,7 +394,7 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
 
 <pre><code class="language-yaml"># filename: example_record.yaml
 # description: a simple yaml for annotated bibliography
-key: &quot;1,000Days_2018_What_We're_Watching_in_Congress&quot; 
+id: &quot;1,000Days_2018_What_We're_Watching_in_Congress&quot; 
 added_by: &quot;John Doe&quot;
 title: &quot;Congress is Back in Session: Here's What We're Watching&quot;
 author:  &quot;1,000 Days&quot;
@@ -397,7 +411,7 @@ keywords:
   - &quot;Infants and Children&quot;
   - &quot;WIC, 2020-2025 Dietary Guidelines for Americans&quot;
   - &quot;DGAs, Maternal Mortality&quot;
-  - &quot;Children’s Health Insurance Program&quot;
+  - &quot;Children's Health Insurance Program&quot;
   - &quot;CHIP, Medicaid&quot;
   - &quot;public charge&quot;
 summary: |
@@ -429,6 +443,12 @@ additional_sources:
     record = yaml.load(file)
 </code></pre>
 
+<pre><code class="language-python">print(record['id'])
+</code></pre>
+
+<pre><code>1,000Days_2018_What_We're_Watching_in_Congress
+</code></pre>
+
 <pre><code class="language-python">print(record['title'])
 </code></pre>
 
@@ -438,7 +458,7 @@ additional_sources:
 <pre><code class="language-python">print(record['keywords'])
 </code></pre>
 
-<pre><code>['Congress', 'Farm Bill', 'Supplemental Nutrition Assistance Program', 'SNAP', 'The Special Supplemental Nutrition Program for Women', 'Infants and Children', 'WIC, 2020-2025 Dietary Guidelines for Americans', 'DGAs, Maternal Mortality', 'Childrenâ€™s Health Insurance Program', 'CHIP, Medicaid', 'public charge']
+<pre><code>['Congress', 'Farm Bill', 'Supplemental Nutrition Assistance Program', 'SNAP', 'The Special Supplemental Nutrition Program for Women', 'Infants and Children', 'WIC, 2020-2025 Dietary Guidelines for Americans', 'DGAs, Maternal Mortality', &quot;Children's Health Insurance Program&quot;, 'CHIP, Medicaid', 'public charge']
 </code></pre>
 
 <pre><code class="language-python">print(record['summary'])
@@ -458,7 +478,9 @@ a.    Trump has threatened to rescind $7 billion of funding to CHIP that was sig
 6)     Threats to Immigrant Families
 a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit immigrant access to benefits such as WIC and Medicaid is currently pending review.
 advocacy_facts: |
-In 2013, Congress mandated that the United States Department of Agriculture (USDA) and the United States Department of Health and Human Services (HHS) include pregnant women and young children as part of the 2020-2025 Dietary Guidelines for Americans (DGAs). The updated DGAs will inform federal nutrition programs that reach young children and their families, as well as serve as an important reference point for physicians, nutrition counselors, early childcare providers, among others.  â€“ 1,000 Days
+In 2013, Congress mandated that the United States Department of Agriculture (USDA) and the United States Department of Health and Human Services (HHS) include pregnant women and young children as part of the 2020-2025 Dietary Guidelines for Americans (DGAs). The updated DGAs will inform federal nutrition programs that reach young children and their families, as well as serve as an important reference point for physicians, nutrition counselors, early childcare providers, among others.
+additional_sources: 
+- 'https://thousanddays.org/draft-house-farm-bill-will-harm-families-and-children/'
 </code></pre>
 
 <pre><code class="language-python">record['date']
@@ -543,7 +565,7 @@ anotherlist has data type:  &lt;class 'list'&gt;
 adict has data type:  &lt;class 'dict'&gt;
 </code></pre>
 
-<h2 id="long-texts">Long texts</h2>
+<h2 id="multiline-strings">Multiline strings</h2>
 
 <p>There are two ways to deal with long texts. Collapsing lines, when the text is really a long line or paragraph&rsquo;, or respecting format. Here&rsquo;a an example.</p>
 
@@ -583,7 +605,6 @@ lines of poetry
 
 <pre><code class="language-yaml"># filename: example4.yml
 # description: a multi-record YAML
----
 # starts record 1
 key11: value11
 key12: value12
@@ -602,23 +623,22 @@ key22: value22
 </code></pre>
 
 <pre><code>This is record 1
-
-
-
-{'key11': 'value11', 'key12': 'value12'}
-
-
-This is record 2
-
-
-
-{'key21': 'value21', 'key22': 'value22'}
 </code></pre>
 
     </div>
 
     
 
+
+<div class="article-tags">
+  
+  <a class="label label-default" href="https://mauriciogtec.github.io/tags/python/">python</a>
+  
+  <a class="label label-default" href="https://mauriciogtec.github.io/tags/yaml/">yaml</a>
+  
+  <a class="label label-default" href="https://mauriciogtec.github.io/tags/csv/">csv</a>
+  
+</div>
 
 
 
@@ -740,7 +760,7 @@ This is record 2
       
       <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/julia.min.js"></script>
       
-      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c&#43;&#43;.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cpp.min.js"></script>
       
       <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
       
