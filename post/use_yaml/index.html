@@ -441,25 +441,25 @@ additional_sources:
 <pre><code class="language-python">print(record['id'])
 </code></pre>
 
-<pre><code>1,000Days_2018_What_We're_Watching_in_Congress
+<pre><code class="language-nohighlight">1,000Days_2018_What_We're_Watching_in_Congress
 </code></pre>
 
 <pre><code class="language-python">print(record['title'])
 </code></pre>
 
-<pre><code>Congress is Back in Session: Here's What We're Watching
+<pre><code class="language-nohighlight">Congress is Back in Session: Here's What We're Watching
 </code></pre>
 
 <pre><code class="language-python">print(record['keywords'])
 </code></pre>
 
-<pre><code class="language-text">['Congress', 'Farm Bill', 'Supplemental Nutrition Assistance Program', 'SNAP', 'The Special Supplemental Nutrition Program for Women', 'Infants and Children', 'WIC, 2020-2025 Dietary Guidelines for Americans', 'DGAs, Maternal Mortality', &quot;Children's Health Insurance Program&quot;, 'CHIP, Medicaid', 'public charge']
+<pre><code class="language-nohighlight">['Congress', 'Farm Bill', 'Supplemental Nutrition Assistance Program', 'SNAP', 'The Special Supplemental Nutrition Program for Women', 'Infants and Children', 'WIC, 2020-2025 Dietary Guidelines for Americans', 'DGAs, Maternal Mortality', &quot;Children's Health Insurance Program&quot;, 'CHIP, Medicaid', 'public charge']
 </code></pre>
 
 <pre><code class="language-python">print(record['summary'])
 </code></pre>
 
-<pre><code>This webpage produced by the advocacy group 1,000 Days provides a summary of Congressional items that the group is keeping an eye on during the summer of 2018. These items are:
+<pre><code class="language-nohighlight">This webpage produced by the advocacy group 1,000 Days provides a summary of Congressional items that the group is keeping an eye on during the summer of 2018. These items are:
 1)     Changes to SNAP in the Farm Bill
 a.    House of Representatives put forth a Farm Bill with significant reduction to SNAP that would reduce food security for low-income families in the US. The Senate has a more balanced bill that is set to be marked up on June 13
 2)     Funding for WIC
@@ -481,13 +481,13 @@ additional_sources:
 <pre><code class="language-python">record['date']
 </code></pre>
 
-<pre><code>datetime.date(2018, 6, 5)
+<pre><code class="language-nohighlight">datetime.date(2018, 6, 5)
 </code></pre>
 
 <pre><code class="language-python">record['date'].year
 </code></pre>
 
-<pre><code>2018
+<pre><code class="language-nohighlight">2018
 </code></pre>
 
 <h2 id="how-does-it-work">How does it work?</h2>
@@ -534,14 +534,14 @@ adict: # watch the indentation!
 <pre><code class="language-python">display(record2)
 </code></pre>
 
-<pre><code>{'anumber': 2,
- 'anothernumber': 3.1416,
- 'astring': 'hello, world!',
- 'anotherstring': 'noproblemhere',
- 'adate': datetime.date(2018, 9, 11),
- 'alist': ['these', 'is', 'a', 'list', 'with', 'name'],
- 'anotherlist': ['can', 'use', 'brackets'],
- 'adict': {'key1': 'value1', 'key2': 'value2', 'key3': ['value31', 'value32']}}
+<pre><code class="language-nohighlight">{'anumber': 2,
+    'anothernumber': 3.1416,
+    'astring': 'hello, world!',
+    'anotherstring': 'noproblemhere',
+    'adate': datetime.date(2018, 9, 11),
+    'alist': ['these', 'is', 'a', 'list', 'with', 'name'],
+    'anotherlist': ['can', 'use', 'brackets'],
+    'adict': {'key1': 'value1', 'key2': 'value2', 'key3': ['value31', 'value32']}}
 </code></pre>
 
 <p>Let&rsquo;s the data types that Python assigns to the read objects.</p>
@@ -550,7 +550,7 @@ adict: # watch the indentation!
     print(key, &quot;has data type: &quot;, type(val))
 </code></pre>
 
-<pre><code>anumber has data type:  &lt;class 'int'&gt;
+<pre><code class="language-nohighlight">anumber has data type:  &lt;class 'int'&gt;
 anothernumber has data type:  &lt;class 'float'&gt;
 astring has data type:  &lt;class 'str'&gt;
 anotherstring has data type:  &lt;class 'str'&gt;
@@ -562,7 +562,7 @@ adict has data type:  &lt;class 'dict'&gt;
 
 <h2 id="multiline-strings">Multiline strings</h2>
 
-<p>There are two ways to deal with long texts. Collapsing lines, when the text is really a long line or paragraph&rsquo;, or respecting format. Here&rsquo;a an example.</p>
+<p>There are two ways to deal with long texts. Collapsing lines, when the text is really a long line or paragraph&rsquo;, or respecting format. Here&rsquo;s an example.</p>
 
 <pre><code class="language-yaml"># filename: example3.yml
 # description: long strings
@@ -583,7 +583,7 @@ fold_newlines: &gt;
 <pre><code class="language-python">print(longstrings['include_newlines'])
 </code></pre>
 
-<pre><code>exactly as you see
+<pre><code class="language-nohighlight">exactly as you see
 will appear these three
 lines of poetry
 </code></pre>
@@ -591,7 +591,7 @@ lines of poetry
 <pre><code class="language-python">print(longstrings['fold_newlines'])
 </code></pre>
 
-<pre><code>this is really a single line of text despite appearances
+<pre><code class="language-nohighlight">this is really a single line of text despite appearances
 </code></pre>
 
 <h3 id="more-than-one-record-per-file">More than one record per file</h3>
@@ -617,7 +617,7 @@ key22: value22
         display(record)
 </code></pre>
 
-<pre><code>This is record 1
+<pre><code class="language-nohighlight">This is record 1
 </code></pre>
 
     </div>

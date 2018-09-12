@@ -96,25 +96,25 @@ additional_sources:
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(record[&#39;id&#39;])
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;1,000Days_2018_What_We&#39;re_Watching_in_Congress
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;1,000Days_2018_What_We&#39;re_Watching_in_Congress
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(record[&#39;title&#39;])
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;Congress is Back in Session: Here&#39;s What We&#39;re Watching
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;Congress is Back in Session: Here&#39;s What We&#39;re Watching
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(record[&#39;keywords&#39;])
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;[&#39;Congress&#39;, &#39;Farm Bill&#39;, &#39;Supplemental Nutrition Assistance Program&#39;, &#39;SNAP&#39;, &#39;The Special Supplemental Nutrition Program for Women&#39;, &#39;Infants and Children&#39;, &#39;WIC, 2020-2025 Dietary Guidelines for Americans&#39;, &#39;DGAs, Maternal Mortality&#39;, &amp;quot;Children&#39;s Health Insurance Program&amp;quot;, &#39;CHIP, Medicaid&#39;, &#39;public charge&#39;]
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;[&#39;Congress&#39;, &#39;Farm Bill&#39;, &#39;Supplemental Nutrition Assistance Program&#39;, &#39;SNAP&#39;, &#39;The Special Supplemental Nutrition Program for Women&#39;, &#39;Infants and Children&#39;, &#39;WIC, 2020-2025 Dietary Guidelines for Americans&#39;, &#39;DGAs, Maternal Mortality&#39;, &amp;quot;Children&#39;s Health Insurance Program&amp;quot;, &#39;CHIP, Medicaid&#39;, &#39;public charge&#39;]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(record[&#39;summary&#39;])
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;This webpage produced by the advocacy group 1,000 Days provides a summary of Congressional items that the group is keeping an eye on during the summer of 2018. These items are:
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;This webpage produced by the advocacy group 1,000 Days provides a summary of Congressional items that the group is keeping an eye on during the summer of 2018. These items are:
 1)     Changes to SNAP in the Farm Bill
 a.    House of Representatives put forth a Farm Bill with significant reduction to SNAP that would reduce food security for low-income families in the US. The Senate has a more balanced bill that is set to be marked up on June 13
 2)     Funding for WIC
@@ -136,13 +136,13 @@ additional_sources:
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;record[&#39;date&#39;]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;datetime.date(2018, 6, 5)
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;datetime.date(2018, 6, 5)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;record[&#39;date&#39;].year
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;2018
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;2018
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;how-does-it-work&#34;&gt;How does it work?&lt;/h2&gt;
@@ -189,14 +189,14 @@ adict: # watch the indentation!
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;display(record2)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;{&#39;anumber&#39;: 2,
- &#39;anothernumber&#39;: 3.1416,
- &#39;astring&#39;: &#39;hello, world!&#39;,
- &#39;anotherstring&#39;: &#39;noproblemhere&#39;,
- &#39;adate&#39;: datetime.date(2018, 9, 11),
- &#39;alist&#39;: [&#39;these&#39;, &#39;is&#39;, &#39;a&#39;, &#39;list&#39;, &#39;with&#39;, &#39;name&#39;],
- &#39;anotherlist&#39;: [&#39;can&#39;, &#39;use&#39;, &#39;brackets&#39;],
- &#39;adict&#39;: {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;, &#39;key3&#39;: [&#39;value31&#39;, &#39;value32&#39;]}}
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;{&#39;anumber&#39;: 2,
+    &#39;anothernumber&#39;: 3.1416,
+    &#39;astring&#39;: &#39;hello, world!&#39;,
+    &#39;anotherstring&#39;: &#39;noproblemhere&#39;,
+    &#39;adate&#39;: datetime.date(2018, 9, 11),
+    &#39;alist&#39;: [&#39;these&#39;, &#39;is&#39;, &#39;a&#39;, &#39;list&#39;, &#39;with&#39;, &#39;name&#39;],
+    &#39;anotherlist&#39;: [&#39;can&#39;, &#39;use&#39;, &#39;brackets&#39;],
+    &#39;adict&#39;: {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;, &#39;key3&#39;: [&#39;value31&#39;, &#39;value32&#39;]}}
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Let&amp;rsquo;s the data types that Python assigns to the read objects.&lt;/p&gt;
@@ -205,7 +205,7 @@ adict: # watch the indentation!
     print(key, &amp;quot;has data type: &amp;quot;, type(val))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;anumber has data type:  &amp;lt;class &#39;int&#39;&amp;gt;
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;anumber has data type:  &amp;lt;class &#39;int&#39;&amp;gt;
 anothernumber has data type:  &amp;lt;class &#39;float&#39;&amp;gt;
 astring has data type:  &amp;lt;class &#39;str&#39;&amp;gt;
 anotherstring has data type:  &amp;lt;class &#39;str&#39;&amp;gt;
@@ -217,7 +217,7 @@ adict has data type:  &amp;lt;class &#39;dict&#39;&amp;gt;
 
 &lt;h2 id=&#34;multiline-strings&#34;&gt;Multiline strings&lt;/h2&gt;
 
-&lt;p&gt;There are two ways to deal with long texts. Collapsing lines, when the text is really a long line or paragraph&amp;rsquo;, or respecting format. Here&amp;rsquo;a an example.&lt;/p&gt;
+&lt;p&gt;There are two ways to deal with long texts. Collapsing lines, when the text is really a long line or paragraph&amp;rsquo;, or respecting format. Here&amp;rsquo;s an example.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# filename: example3.yml
 # description: long strings
@@ -238,7 +238,7 @@ fold_newlines: &amp;gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(longstrings[&#39;include_newlines&#39;])
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;exactly as you see
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;exactly as you see
 will appear these three
 lines of poetry
 &lt;/code&gt;&lt;/pre&gt;
@@ -246,7 +246,7 @@ lines of poetry
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(longstrings[&#39;fold_newlines&#39;])
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;this is really a single line of text despite appearances
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;this is really a single line of text despite appearances
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;more-than-one-record-per-file&#34;&gt;More than one record per file&lt;/h3&gt;
@@ -272,7 +272,7 @@ key22: value22
         display(record)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;This is record 1
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;This is record 1
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
