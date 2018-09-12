@@ -79,6 +79,7 @@ summary: |
   a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit immigrant access to benefits such as WIC and Medicaid is currently pending review.
   advocacy_facts: |
   In 2013, Congress mandated that the United States Department of Agriculture (USDA) and the United States Department of Health and Human Services (HHS) include pregnant women and young children as part of the 2020-2025 Dietary Guidelines for Americans (DGAs). The updated DGAs will inform federal nutrition programs that reach young children and their families, as well as serve as an important reference point for physicians, nutrition counselors, early childcare providers, among others.  – 1,000 Days
+
 additional_sources: 
   - &#39;https://thousanddays.org/draft-house-farm-bill-will-harm-families-and-children/&#39;
 &lt;/code&gt;&lt;/pre&gt;
@@ -107,7 +108,7 @@ additional_sources:
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(record[&#39;keywords&#39;])
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;[&#39;Congress&#39;, &#39;Farm Bill&#39;, &#39;Supplemental Nutrition Assistance Program&#39;, &#39;SNAP&#39;, &#39;The Special Supplemental Nutrition Program for Women&#39;, &#39;Infants and Children&#39;, &#39;WIC, 2020-2025 Dietary Guidelines for Americans&#39;, &#39;DGAs, Maternal Mortality&#39;, &amp;quot;Children&#39;s Health Insurance Program&amp;quot;, &#39;CHIP, Medicaid&#39;, &#39;public charge&#39;]
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;[&#39;Congress&#39;, &#39;Farm Bill&#39;, &#39;Supplemental Nutrition Assistance Program&#39;, &#39;SNAP&#39;, &#39;The Special Supplemental Nutrition Program for Women&#39;, &#39;Infants and Children&#39;, &#39;WIC, 2020-2025 Dietary Guidelines for Americans&#39;, &#39;DGAs, Maternal Mortality&#39;, &amp;quot;Children&#39;s Health Insurance Program&amp;quot;, &#39;CHIP, Medicaid&#39;, &#39;public charge&#39;]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(record[&#39;summary&#39;])
