@@ -49,6 +49,11 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
       
     
     
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css" crossorigin="anonymous">
+      
+    
 
     
 
@@ -279,8 +284,8 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
 
   <span class="article-date">
     
-    <meta content="2018-09-11 14:14:07 -0500 DST" itemprop="datePublished">
-    <time datetime="2018-09-11 14:14:07 -0500 DST" itemprop="dateModified">
+    <meta content="2018-09-11 14:14:07 -0500 CDT" itemprop="datePublished">
+    <time datetime="2018-09-11 14:14:07 -0500 CDT" itemprop="dateModified">
       Sep 11, 2018
     </time>
   </span>
@@ -376,17 +381,17 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
 - it is human-readable
 - ergo, human-writable too
 - used widely nowadays
-- can be transfored to other common data serialization formats such as JSON</p>
+- can be transformed to other common data serialization formats such as JSON</p>
 
 <p>For my example I will use Python to &lsquo;parse&rsquo; the YAML format. The idea is to show by example how a file stored in this format is readable by the machine.</p>
 
-<p>Our task is to use YAML to serialize, records of annotated bibliography. Note that there are other forms recording bibliograhy, such bibtex, but I claim that YAML requires much less effort.</p>
+<p>Our task is to use YAML to serialize, records of annotated bibliography. Note that there are other forms recording bibliography, such bibtex, but I claim that YAML requires much less effort.</p>
 
 <h2 id="a-simple-example">A simple example</h2>
 
-<p>Below are the contents of a simple YAML file named <code>example_record.yaml</code>. This is a textfile, pretty much like a file ending with <code>.txt</code> which you have most likely used before and opened with the Notepad if you are a Windows user. This file can also be opened with the Notepad, but it ends with <code>.yaml</code> instead of <code>.txt</code>. Note that the colors are not part of the file, but of the display engine we are using here.</p>
+<p>Below are the contents of a simple YAML file named <code>example1.yaml</code>. This is a textfile, pretty much like a file ending with <code>.txt</code> which you have most likely used before and opened with the Notepad if you are a Windows user. This file can also be opened with the Notepad, but it ends with <code>.yaml</code> instead of <code>.txt</code>. Note that the colors are not part of the file, but of the display engine we are using here.</p>
 
-<pre><code class="language-yaml"># filename: example_record.yaml
+<pre><code class="language-yaml"># filename: example1.yaml
 # description: a simple yaml for annotated bibliography
 id: &quot;1,000Days_2018_What_We're_Watching_in_Congress&quot; 
 added_by: &quot;John Doe&quot;
@@ -422,7 +427,8 @@ summary: |
   a.    Trump has threatened to rescind $7 billion of funding to CHIP that was signed into law and passed by both the Senate and House. 
   6)     Threats to Immigrant Families
   a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit immigrant access to benefits such as WIC and Medicaid is currently pending review.
-  advocacy_facts: |
+
+advocacy_facts: |
   In 2013, Congress mandated that the United States Department of Agriculture (USDA) and the United States Department of Health and Human Services (HHS) include pregnant women and young children as part of the 2020-2025 Dietary Guidelines for Americans (DGAs). The updated DGAs will inform federal nutrition programs that reach young children and their families, as well as serve as an important reference point for physicians, nutrition counselors, early childcare providers, among others.  – 1,000 Days
 
 additional_sources: 
@@ -434,7 +440,7 @@ additional_sources:
 <pre><code class="language-python">import yaml # library for YAML support in python
 </code></pre>
 
-<pre><code class="language-python">with open(&quot;example.yaml&quot;, &quot;r&quot;) as file:
+<pre><code class="language-python">with open(&quot;example1.yaml&quot;, &quot;r&quot;) as file:
     record = yaml.load(file)
 </code></pre>
 
@@ -472,10 +478,6 @@ a.    Both House and Senate have members who are introducing legislation on addr
 a.    Trump has threatened to rescind $7 billion of funding to CHIP that was signed into law and passed by both the Senate and House. 
 6)     Threats to Immigrant Families
 a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit immigrant access to benefits such as WIC and Medicaid is currently pending review.
-advocacy_facts: |
-In 2013, Congress mandated that the United States Department of Agriculture (USDA) and the United States Department of Health and Human Services (HHS) include pregnant women and young children as part of the 2020-2025 Dietary Guidelines for Americans (DGAs). The updated DGAs will inform federal nutrition programs that reach young children and their families, as well as serve as an important reference point for physicians, nutrition counselors, early childcare providers, among others.
-additional_sources: 
-- 'https://thousanddays.org/draft-house-farm-bill-will-harm-families-and-children/'
 </code></pre>
 
 <pre><code class="language-python">record['date']
@@ -596,7 +598,7 @@ lines of poetry
 
 <h3 id="more-than-one-record-per-file">More than one record per file</h3>
 
-<p>For some applications it can be useufl to have one big file for different records. That&rsquo;s no problem for YAML. Just separate them with <code>---</code> lines.</p>
+<p>For some applications it can be useful to have one big file for different records. That&rsquo;s no problem for YAML. Just separate them with <code>---</code> lines.</p>
 
 <pre><code class="language-yaml"># filename: example4.yml
 # description: a multi-record YAML
@@ -619,6 +621,59 @@ key22: value22
 
 <pre><code class="language-nohighlight">This is record 1
 </code></pre>
+
+<pre><code class="language-nohighlight">{'key11': 'value11', 'key12': 'value12'}
+</code></pre>
+
+<pre><code class="language-nohighlight">This is record 2
+</code></pre>
+
+<pre><code class="language-nohighlight">{'key21': 'value21', 'key22': 'value22'}
+</code></pre>
+
+<h2 id="what-can-we-do-with-yaml">What can we do with YAML?</h2>
+
+<p>This is a broad question, since there&rsquo;s a million things you can do with a database. However here&rsquo;s a quick example using Python.</p>
+
+<pre><code class="language-yaml"># filename: example5.yml
+# description: a multi-record YAML for topic queries
+id: 1
+topics: ['sports', 'war']
+---
+id: 2
+topics: ['sports', 'war']
+---
+id: 3 
+topics: ['food', 'war']
+---
+id: 4 
+topics: ['sports', 'beauty', 'art']
+---
+id: 5 
+topics: ['art', 'war']
+---
+id: 6
+topics: ['literature']
+---
+id: 7 
+topics: ['sports', 'art']
+</code></pre>
+
+<pre><code class="language-python">with open(&quot;example5.yaml&quot;, &quot;r&quot;) as file:
+    records = list(yaml.load_all(file))
+</code></pre>
+
+<p>Suppose that we want to know what id&rsquo;s are associated with the topic <code>sports</code>. Then we can use Python to do this:</p>
+
+<pre><code class="language-python">[rec['id'] for rec in records if 'sports' in rec['topics']] # find record id's that have topic sports
+</code></pre>
+
+<pre><code class="language-nohighlight">[1, 2, 4, 7]
+</code></pre>
+
+<h2 id="learn-more">Learn more</h2>
+
+<p>There isn&rsquo;t much science to YAML. Most of the time what we learned is enough. But to learn more you can check the official documentation and this <a href="http://yaml.org/refcard.html" target="_blank">reference card</a>.</p>
 
     </div>
 
@@ -722,6 +777,20 @@ key22: value22
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
 
       
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/julia.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cpp.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+        
+      
 
       
       
@@ -740,6 +809,8 @@ key22: value22
     
 
     
+    
+    <script>hljs.initHighlightingOnLoad();</script>
     
 
     

@@ -31,17 +31,17 @@
 - it is human-readable
 - ergo, human-writable too
 - used widely nowadays
-- can be transfored to other common data serialization formats such as JSON&lt;/p&gt;
+- can be transformed to other common data serialization formats such as JSON&lt;/p&gt;
 
 &lt;p&gt;For my example I will use Python to &amp;lsquo;parse&amp;rsquo; the YAML format. The idea is to show by example how a file stored in this format is readable by the machine.&lt;/p&gt;
 
-&lt;p&gt;Our task is to use YAML to serialize, records of annotated bibliography. Note that there are other forms recording bibliograhy, such bibtex, but I claim that YAML requires much less effort.&lt;/p&gt;
+&lt;p&gt;Our task is to use YAML to serialize, records of annotated bibliography. Note that there are other forms recording bibliography, such bibtex, but I claim that YAML requires much less effort.&lt;/p&gt;
 
 &lt;h2 id=&#34;a-simple-example&#34;&gt;A simple example&lt;/h2&gt;
 
-&lt;p&gt;Below are the contents of a simple YAML file named &lt;code&gt;example_record.yaml&lt;/code&gt;. This is a textfile, pretty much like a file ending with &lt;code&gt;.txt&lt;/code&gt; which you have most likely used before and opened with the Notepad if you are a Windows user. This file can also be opened with the Notepad, but it ends with &lt;code&gt;.yaml&lt;/code&gt; instead of &lt;code&gt;.txt&lt;/code&gt;. Note that the colors are not part of the file, but of the display engine we are using here.&lt;/p&gt;
+&lt;p&gt;Below are the contents of a simple YAML file named &lt;code&gt;example1.yaml&lt;/code&gt;. This is a textfile, pretty much like a file ending with &lt;code&gt;.txt&lt;/code&gt; which you have most likely used before and opened with the Notepad if you are a Windows user. This file can also be opened with the Notepad, but it ends with &lt;code&gt;.yaml&lt;/code&gt; instead of &lt;code&gt;.txt&lt;/code&gt;. Note that the colors are not part of the file, but of the display engine we are using here.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# filename: example_record.yaml
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# filename: example1.yaml
 # description: a simple yaml for annotated bibliography
 id: &amp;quot;1,000Days_2018_What_We&#39;re_Watching_in_Congress&amp;quot; 
 added_by: &amp;quot;John Doe&amp;quot;
@@ -77,7 +77,8 @@ summary: |
   a.    Trump has threatened to rescind $7 billion of funding to CHIP that was signed into law and passed by both the Senate and House. 
   6)     Threats to Immigrant Families
   a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit immigrant access to benefits such as WIC and Medicaid is currently pending review.
-  advocacy_facts: |
+
+advocacy_facts: |
   In 2013, Congress mandated that the United States Department of Agriculture (USDA) and the United States Department of Health and Human Services (HHS) include pregnant women and young children as part of the 2020-2025 Dietary Guidelines for Americans (DGAs). The updated DGAs will inform federal nutrition programs that reach young children and their families, as well as serve as an important reference point for physicians, nutrition counselors, early childcare providers, among others.  – 1,000 Days
 
 additional_sources: 
@@ -89,7 +90,7 @@ additional_sources:
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import yaml # library for YAML support in python
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;with open(&amp;quot;example.yaml&amp;quot;, &amp;quot;r&amp;quot;) as file:
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;with open(&amp;quot;example1.yaml&amp;quot;, &amp;quot;r&amp;quot;) as file:
     record = yaml.load(file)
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -127,10 +128,6 @@ a.    Both House and Senate have members who are introducing legislation on addr
 a.    Trump has threatened to rescind $7 billion of funding to CHIP that was signed into law and passed by both the Senate and House. 
 6)     Threats to Immigrant Families
 a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit immigrant access to benefits such as WIC and Medicaid is currently pending review.
-advocacy_facts: |
-In 2013, Congress mandated that the United States Department of Agriculture (USDA) and the United States Department of Health and Human Services (HHS) include pregnant women and young children as part of the 2020-2025 Dietary Guidelines for Americans (DGAs). The updated DGAs will inform federal nutrition programs that reach young children and their families, as well as serve as an important reference point for physicians, nutrition counselors, early childcare providers, among others.
-additional_sources: 
-- &#39;https://thousanddays.org/draft-house-farm-bill-will-harm-families-and-children/&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;record[&#39;date&#39;]
@@ -251,7 +248,7 @@ lines of poetry
 
 &lt;h3 id=&#34;more-than-one-record-per-file&#34;&gt;More than one record per file&lt;/h3&gt;
 
-&lt;p&gt;For some applications it can be useufl to have one big file for different records. That&amp;rsquo;s no problem for YAML. Just separate them with &lt;code&gt;---&lt;/code&gt; lines.&lt;/p&gt;
+&lt;p&gt;For some applications it can be useful to have one big file for different records. That&amp;rsquo;s no problem for YAML. Just separate them with &lt;code&gt;---&lt;/code&gt; lines.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# filename: example4.yml
 # description: a multi-record YAML
@@ -274,6 +271,59 @@ key22: value22
 
 &lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;This is record 1
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;{&#39;key11&#39;: &#39;value11&#39;, &#39;key12&#39;: &#39;value12&#39;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;This is record 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;{&#39;key21&#39;: &#39;value21&#39;, &#39;key22&#39;: &#39;value22&#39;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;what-can-we-do-with-yaml&#34;&gt;What can we do with YAML?&lt;/h2&gt;
+
+&lt;p&gt;This is a broad question, since there&amp;rsquo;s a million things you can do with a database. However here&amp;rsquo;s a quick example using Python.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# filename: example5.yml
+# description: a multi-record YAML for topic queries
+id: 1
+topics: [&#39;sports&#39;, &#39;war&#39;]
+---
+id: 2
+topics: [&#39;sports&#39;, &#39;war&#39;]
+---
+id: 3 
+topics: [&#39;food&#39;, &#39;war&#39;]
+---
+id: 4 
+topics: [&#39;sports&#39;, &#39;beauty&#39;, &#39;art&#39;]
+---
+id: 5 
+topics: [&#39;art&#39;, &#39;war&#39;]
+---
+id: 6
+topics: [&#39;literature&#39;]
+---
+id: 7 
+topics: [&#39;sports&#39;, &#39;art&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;with open(&amp;quot;example5.yaml&amp;quot;, &amp;quot;r&amp;quot;) as file:
+    records = list(yaml.load_all(file))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Suppose that we want to know what id&amp;rsquo;s are associated with the topic &lt;code&gt;sports&lt;/code&gt;. Then we can use Python to do this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;[rec[&#39;id&#39;] for rec in records if &#39;sports&#39; in rec[&#39;topics&#39;]] # find record id&#39;s that have topic sports
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-nohighlight&#34;&gt;[1, 2, 4, 7]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;learn-more&#34;&gt;Learn more&lt;/h2&gt;
+
+&lt;p&gt;There isn&amp;rsquo;t much science to YAML. Most of the time what we learned is enough. But to learn more you can check the official documentation and this &lt;a href=&#34;http://yaml.org/refcard.html&#34; target=&#34;_blank&#34;&gt;reference card&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
