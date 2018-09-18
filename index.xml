@@ -324,6 +324,10 @@ topics: [&#39;sports&#39;, &#39;art&#39;]
 &lt;h2 id=&#34;learn-more&#34;&gt;Learn more&lt;/h2&gt;
 
 &lt;p&gt;There isn&amp;rsquo;t much science to YAML. Most of the time what we learned is enough. But to learn more you can check the official documentation and this &lt;a href=&#34;http://yaml.org/refcard.html&#34; target=&#34;_blank&#34;&gt;reference card&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;practice&#34;&gt;Practice&lt;/h2&gt;
+
+&lt;p&gt;A great opiton to know if you are using the right syntax is too check with this online parser: [](&lt;a href=&#34;http://yaml-online-parser.appspot.com/&#34; target=&#34;_blank&#34;&gt;http://yaml-online-parser.appspot.com/&lt;/a&gt;)&lt;/p&gt;
 </description>
     </item>
     
