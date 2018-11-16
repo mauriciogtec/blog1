@@ -78,8 +78,8 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
   
 
   
-  <link rel="alternate" href="https://mauriciogtec.github.io/index.xml" type="application/rss+xml" title="The Unknot: Mauricio Tec">
-  <link rel="feed" href="https://mauriciogtec.github.io/index.xml" type="application/rss+xml" title="The Unknot: Mauricio Tec">
+  <link rel="alternate" href="https://mauriciogtec.github.io/index.xml" type="application/rss+xml" title="Unknot">
+  <link rel="feed" href="https://mauriciogtec.github.io/index.xml" type="application/rss+xml" title="Unknot">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -93,9 +93,9 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
   <meta property="twitter:site" content="@mauriciogtec">
   <meta property="twitter:creator" content="@mauriciogtec">
   
-  <meta property="og:site_name" content="The Unknot: Mauricio Tec">
+  <meta property="og:site_name" content="Unknot">
   <meta property="og:url" content="https://mauriciogtec.github.io/post/use_yaml/">
-  <meta property="og:title" content="Use YAML! | The Unknot: Mauricio Tec">
+  <meta property="og:title" content="Use YAML! | Unknot">
   <meta property="og:description" content="A common issue when starting a new project involving data is choosing a format in which to store the data.
 The answer to the question of course depends on several aspects: the sources, the data types, the purpose, and its relational structure.
 While modern approaches in Big Data endorse the strategy of first extracting high volumes of raw data and worry about processing later; in here we shall be concerned with the opposite case, when data has to be captured manually by a human team, and we don&rsquo;t want to spend hours later trying to make it amenable for the computer to read.">
@@ -110,7 +110,7 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
 
   
 
-  <title>Use YAML! | The Unknot: Mauricio Tec</title>
+  <title>Use YAML! | Unknot</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -129,7 +129,7 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
         <span class="icon-bar"></span>
       </button>
       
-      <a class="navbar-brand" href="/">The Unknot: Mauricio Tec</a>
+      <a class="navbar-brand" href="/">Unknot</a>
     </div>
 
     
@@ -187,47 +187,9 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
         
 
         <li class="nav-item">
-          <a href="/#publications_selected">
+          <a href="/#publications">
             
             <span>Publications</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#projects">
-            
-            <span>Projects</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#teaching">
-            
-            <span>Teaching</span>
             
           </a>
         </li>
@@ -296,7 +258,7 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    8 min read
+    9 min read
   </span>
   
 
@@ -376,12 +338,15 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
 
 <p>You are probably familiar with CSVs, because you can create CSVs in Excel, which makes them quite handy. However, they are mainly useful for highly structured data having a fixed known number of columns per record.</p>
 
-<p>I want to present a basic introduction to YAML (yet-another-markup-language), a simple approach to keeping data records. It&rsquo;s advantages are
-- it is machine-readable
-- it is human-readable
-- ergo, human-writable too
-- used widely nowadays
-- can be transformed to other common data serialization formats such as JSON</p>
+<p>I want to present a basic introduction to YAML (yet-another-markup-language), a simple approach to keeping data records. It&rsquo;s advantages are</p>
+
+<ul>
+<li>it is machine-readable</li>
+<li>it is human-readable</li>
+<li>ergo, human-writable too</li>
+<li>used widely nowadays</li>
+<li>can be transformed to other common data serialization formats such as JSON</li>
+</ul>
 
 <p>For my example I will use Python to &lsquo;parse&rsquo; the YAML format. The idea is to show by example how a file stored in this format is readable by the machine.</p>
 
@@ -494,10 +459,13 @@ a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit
 
 <h2 id="how-does-it-work">How does it work?</h2>
 
-<p>There are the things that can be input in a YAML:
-- &ldquo;<em>key: value</em>&rdquo; pairs
-- <em>lists</em>: denoted with brackets <code>[x1, x2, ..., xn]</code> or with indented dashes as <code>keywords</code> in the previous example.
-- <em>value</em> can be atomic such as strings, numbers or dates, or it can be a list of these atomic elements, or even a list of &ldquo;key: value&rdquo; pairs</p>
+<p>There are the things that can be input in a YAML:</p>
+
+<ul>
+<li>&ldquo;<em>key: value</em>&rdquo; pairs</li>
+<li><em>lists</em>: denoted with brackets <code>[x1, x2, ..., xn]</code> or with indented dashes as <code>keywords</code> in the previous example.</li>
+<li><em>value</em> can be atomic such as strings, numbers or dates, or it can be a list of these atomic elements, or even a list of &ldquo;key: value&rdquo; pairs</li>
+</ul>
 
 <p>When a computer program such as Python reads YAML it maps each value to the correct type.</p>
 
@@ -564,7 +532,7 @@ adict has data type:  &lt;class 'dict'&gt;
 
 <h2 id="multiline-strings">Multiline strings</h2>
 
-<p>There are two ways to deal with long texts. Collapsing lines, when the text is really a long line or paragraph&rsquo;, or respecting format. Here&rsquo;s an example.</p>
+<p>There are two ways to deal with long texts. Collapsing lines, when the text is really a long line or paragraph&rsquo;, or respecting format. Here is an example.</p>
 
 <pre><code class="language-yaml"># filename: example3.yml
 # description: long strings
@@ -674,6 +642,10 @@ topics: ['sports', 'art']
 <h2 id="learn-more">Learn more</h2>
 
 <p>There isn&rsquo;t much science to YAML. Most of the time what we learned is enough. But to learn more you can check the official documentation and this <a href="http://yaml.org/refcard.html" target="_blank">reference card</a>.</p>
+
+<h2 id="practice">Practice</h2>
+
+<p>A great option for checking quickly if your YAML syntax is correct, is to use an online parser like this one: <a href="http://yaml-online-parser.appspot.com/" target="_blank">yaml-online-parser.appspot.com</a></p>
 
     </div>
 

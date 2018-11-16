@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>The Unknot: Mauricio Tec on The Unknot: Mauricio Tec</title>
+    <title>Unknot on Unknot</title>
     <link>https://mauriciogtec.github.io/</link>
-    <description>Recent content in The Unknot: Mauricio Tec on The Unknot: Mauricio Tec</description>
+    <description>Recent content in Unknot on Unknot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
@@ -26,12 +26,15 @@
 
 &lt;p&gt;You are probably familiar with CSVs, because you can create CSVs in Excel, which makes them quite handy. However, they are mainly useful for highly structured data having a fixed known number of columns per record.&lt;/p&gt;
 
-&lt;p&gt;I want to present a basic introduction to YAML (yet-another-markup-language), a simple approach to keeping data records. It&amp;rsquo;s advantages are
-- it is machine-readable
-- it is human-readable
-- ergo, human-writable too
-- used widely nowadays
-- can be transformed to other common data serialization formats such as JSON&lt;/p&gt;
+&lt;p&gt;I want to present a basic introduction to YAML (yet-another-markup-language), a simple approach to keeping data records. It&amp;rsquo;s advantages are&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;it is machine-readable&lt;/li&gt;
+&lt;li&gt;it is human-readable&lt;/li&gt;
+&lt;li&gt;ergo, human-writable too&lt;/li&gt;
+&lt;li&gt;used widely nowadays&lt;/li&gt;
+&lt;li&gt;can be transformed to other common data serialization formats such as JSON&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;For my example I will use Python to &amp;lsquo;parse&amp;rsquo; the YAML format. The idea is to show by example how a file stored in this format is readable by the machine.&lt;/p&gt;
 
@@ -144,10 +147,13 @@ a.    Public Charge, a proposed Dept. of Homeland Security rule that would limit
 
 &lt;h2 id=&#34;how-does-it-work&#34;&gt;How does it work?&lt;/h2&gt;
 
-&lt;p&gt;There are the things that can be input in a YAML:
-- &amp;ldquo;&lt;em&gt;key: value&lt;/em&gt;&amp;rdquo; pairs
-- &lt;em&gt;lists&lt;/em&gt;: denoted with brackets &lt;code&gt;[x1, x2, ..., xn]&lt;/code&gt; or with indented dashes as &lt;code&gt;keywords&lt;/code&gt; in the previous example.
-- &lt;em&gt;value&lt;/em&gt; can be atomic such as strings, numbers or dates, or it can be a list of these atomic elements, or even a list of &amp;ldquo;key: value&amp;rdquo; pairs&lt;/p&gt;
+&lt;p&gt;There are the things that can be input in a YAML:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;&lt;em&gt;key: value&lt;/em&gt;&amp;rdquo; pairs&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;lists&lt;/em&gt;: denoted with brackets &lt;code&gt;[x1, x2, ..., xn]&lt;/code&gt; or with indented dashes as &lt;code&gt;keywords&lt;/code&gt; in the previous example.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;value&lt;/em&gt; can be atomic such as strings, numbers or dates, or it can be a list of these atomic elements, or even a list of &amp;ldquo;key: value&amp;rdquo; pairs&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;When a computer program such as Python reads YAML it maps each value to the correct type.&lt;/p&gt;
 
@@ -214,7 +220,7 @@ adict has data type:  &amp;lt;class &#39;dict&#39;&amp;gt;
 
 &lt;h2 id=&#34;multiline-strings&#34;&gt;Multiline strings&lt;/h2&gt;
 
-&lt;p&gt;There are two ways to deal with long texts. Collapsing lines, when the text is really a long line or paragraph&amp;rsquo;, or respecting format. Here&amp;rsquo;s an example.&lt;/p&gt;
+&lt;p&gt;There are two ways to deal with long texts. Collapsing lines, when the text is really a long line or paragraph&amp;rsquo;, or respecting format. Here is an example.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# filename: example3.yml
 # description: long strings
@@ -324,6 +330,10 @@ topics: [&#39;sports&#39;, &#39;art&#39;]
 &lt;h2 id=&#34;learn-more&#34;&gt;Learn more&lt;/h2&gt;
 
 &lt;p&gt;There isn&amp;rsquo;t much science to YAML. Most of the time what we learned is enough. But to learn more you can check the official documentation and this &lt;a href=&#34;http://yaml.org/refcard.html&#34; target=&#34;_blank&#34;&gt;reference card&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;practice&#34;&gt;Practice&lt;/h2&gt;
+
+&lt;p&gt;A great option for checking quickly if your YAML syntax is correct, is to use an online parser like this one: &lt;a href=&#34;http://yaml-online-parser.appspot.com/&#34; target=&#34;_blank&#34;&gt;yaml-online-parser.appspot.com&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

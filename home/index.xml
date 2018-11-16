@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Homes on The Unknot: Mauricio Tec</title>
+    <title>Homes on Unknot</title>
     <link>https://mauriciogtec.github.io/home/</link>
-    <description>Recent content in Homes on The Unknot: Mauricio Tec</description>
+    <description>Recent content in Homes on Unknot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
@@ -18,9 +18,7 @@
       <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
       <guid>https://mauriciogtec.github.io/home/about/</guid>
-      <description>About me Hi! I am Mauricio Garcia Tec, inquisitive data scientist and graduate student at UT Austin, where I currently work in developing novel algorithms for fitting spatiotemporal Machine Learning and Statistical models in large-data scenarios.
-I acquired broad experience tackling real-world data problems throughout my ventures in quantitative finance, public policy research, and university lecturing. See my LinkedIn profile for more details about my skills and experience.
-My other interests include Bayesian statistics, which provide an elegant framework for statistical modelling with better model composability, model selection, and uncertainty quantification than traditional approaches.</description>
+      <description>About me Hi! I am an inquisitive Ph.D. student at UT Austin. Passionate for the art of mathematics and computers, I began my career tackling real-world problems with economic and financial data. Today, I seek to contribute to ongoing AI research from two perspectives: by developing scalable, parallelizable and decentralized algorithms, and by harnessing Probability and Statistics to provide insights and suggest smarter models. Please reach out if you want to collaborate.</description>
     </item>
     
     <item>
@@ -47,7 +45,9 @@ My other interests include Bayesian statistics, which provide an elegant framewo
       <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
       <guid>https://mauriciogtec.github.io/home/publications/</guid>
-      <description></description>
+      <description> Williamson, S., Mauricio Tec. &amp;ldquo;Random clique covers for graphs with local density and global sparsity&amp;rdquo;. Submitted to AISTATS 2019. Preprint arXiv:1810.06738, 2018.
+ Zuniga-Garcia, N., Mauricio Tec, J. G. Scott, N. Ruiz-Juri, R. Machemehl. &amp;ldquo;Evaluation of Ride-Sourcing Search Frictions and Driver Productivity: A Spatial Denoising Approach&amp;rdquo;. Preprint arXiv:1809.10329. Presented at INFORMS 2018. In review for publication by Transportation Research Part C, 2018.
+  </description>
     </item>
     
     <item>
