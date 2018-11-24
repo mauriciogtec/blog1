@@ -14,10 +14,10 @@
     
     <item>
       <title>Use YAML!</title>
-      <link>https://mauriciogtec.github.io/post/use_yaml/</link>
+      <link>https://mauriciogtec.github.io/post/use-yaml/</link>
       <pubDate>Tue, 11 Sep 2018 14:14:07 -0500</pubDate>
       
-      <guid>https://mauriciogtec.github.io/post/use_yaml/</guid>
+      <guid>https://mauriciogtec.github.io/post/use-yaml/</guid>
       <description>A common issue when starting a new project involving data is choosing a format in which to store the data.
 The answer to the question of course depends on several aspects: the sources, the data types, the purpose, and its relational structure.
 While modern approaches in Big Data endorse the strategy of first extracting high volumes of raw data and worry about processing later; in here we shall be concerned with the opposite case, when data has to be captured manually by a human team, and we don&amp;rsquo;t want to spend hours later trying to make it amenable for the computer to read.</description>

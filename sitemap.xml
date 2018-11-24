@@ -4,7 +4,15 @@
     
     <url>
     
-      <loc>https://mauriciogtec.github.io/post/use_yaml/</loc>
+      <loc>https://mauriciogtec.github.io/post/rl-reading-list/</loc>
+      <lastmod>2018-11-24T11:11:35-06:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://mauriciogtec.github.io/post/use-yaml/</loc>
       <lastmod>2018-09-11T14:14:07-05:00</lastmod>
     </url>
     
@@ -105,6 +113,15 @@
     
       <loc>https://mauriciogtec.github.io/tags/python/</loc>
       <lastmod>2018-09-11T14:14:07-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://mauriciogtec.github.io/tags/reinforcement-learning/</loc>
+      <lastmod>2018-11-24T11:11:35-06:00</lastmod>
       <priority>0</priority>
     </url>
     

@@ -11,11 +11,123 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Reinforcement Learning Reading List</title>
+      <link>https://mauriciogtec.github.io/post/rl-reading-list/</link>
+      <pubDate>Sat, 24 Nov 2018 11:11:35 -0600</pubDate>
+      
+      <guid>https://mauriciogtec.github.io/post/rl-reading-list/</guid>
+      <description>
+
+&lt;p&gt;Here&amp;rsquo;s a list to Reinforcement Learning ideas and papers. It is mostly for personal research, as part of my work as PhD student at the University of Texas at Austin.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Course: Research Elective Fall 2019&lt;/li&gt;
+&lt;li&gt;Advisor: Prof. Stephen G. Walker&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: This is not an extensive literature review, but a broad overview to guide our research, with the specific goal of exploring and extracting the statistical and probabilistic ideas and areas of opportunity in reinforcement learning literature.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;key-concepts&#34;&gt;Key concepts&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Multi-armed Bandits&lt;/strong&gt;: It is the most elementary problem of Reinforcement Learning, and the building block of many algorithms for more complex problems.&lt;/p&gt;
+
+&lt;p&gt;We start with random variables $X_1, &amp;hellip;, X_K$ representing the rewards of $K$ possible actions, and we have to decide a sampling strategy so that we maximize the &lt;em&gt;total reward&lt;/em&gt; over time. Basically, we are interested in $\max(X_1, &amp;hellip;, X_K)$. We start with no data&amp;ndash;no smart decision available&amp;ndash;and at each turn, we must select one of the $X_i$ from which to sample (or one bandit arm, as in casino machines).&lt;/p&gt;
+
+&lt;p&gt;The reward up to time $T$ is $R_T = \sum_{t=1}^T X_t$. Naively, we could sample each arm several times and then select the arm whose sample has the highest mean; however, the idea is to learn quickly and reach high values as soon as possible.&lt;/p&gt;
+
+&lt;p&gt;The simplest version of the problem assumes that the $X_i$ are independent, and it is already an interesting problem.&lt;/p&gt;
+
+&lt;p&gt;The first idea developed in this direction was &lt;a href=&#34;https://en.wikipedia.org/wiki/Thompson_sampling&#34; target=&#34;_blank&#34;&gt;Thompson Sampling&lt;/a&gt; (1933), which boils down to Bayesian inference. We begin by putting a prior belief over the distribution of each $X_i$ (usually uniform), and at each step we update our posterior belief of the selected arm with the observed value obtained after selecting it. The selection rule is to choose arm $i$ proportionally to our belief of how much its reward is higher than those of the other arms. The usual approach is to simulate a sample from each posterior distribution, and choose the arm whose simulation had the highest sampled value. The simplest version of the algorithm uses a Beta-Bernoulli conjugate model. Gaussian Processes are also used for more complicated tasks.&lt;/p&gt;
+
+&lt;p&gt;Although the idea of Thompson sampling is very old, it remains an active area of research. For example, &lt;a href=&#34;https://papers.nips.cc/paper/4321-an-empirical-evaluation-of-thompson-sampling.pdf&#34; target=&#34;_blank&#34;&gt;Chappelle &amp;amp; Li&lt;/a&gt; (2011) compare multiple strategies and improvements over Thompson Sampling, it also discusses its optimality.&lt;/p&gt;
+
+&lt;p&gt;Another considerable part of the literature centers around the idea of minimizing the expected &lt;em&gt;regret&lt;/em&gt; of a strategy $\pi$ up to time $T$, defined as&lt;/p&gt;
+
+&lt;p&gt;$$ T\mu_*  - \sum_{t=1}^T \mu_{\pi(t)} $$&lt;/p&gt;
+
+&lt;p&gt;where $\mu_* = \max_i E(X_i)$, and $\mu_{\pi(t)}$ is the mean of the random variable chosen at time $t$ by the sampling strategy $\pi$. The idea of regret was introduced by &lt;a href=&#34;sdfsd&#34; target=&#34;_blank&#34;&gt;Lai and Robbins&lt;/a&gt; (1985). A recent highly-cited survey is &lt;a href=&#34;sdfsdf&#34; target=&#34;_blank&#34;&gt;(Bubeck &amp;amp; Bianchi, 2012)&lt;/a&gt;. Not suprisingly, the analysis techniques rely on probability concentration inequalities. For example, an application of Hoeffding&amp;rsquo;s inequality leads to the so-called &lt;em&gt;upper confidence bound&lt;/em&gt; (UCB) rule, namely,
+$$
+\pi(t) = \mathrm{argmax}_i \; \hat{\mu}_i + \sqrt{\frac{2\log t}{n_i}}
+$$&lt;/p&gt;
+
+&lt;p&gt;where $\hat{\mu}_i$ is the empirical mean of the samples from arm $i$, and $n_i$ is the number of times arm $i$ has been sampled. The second term appearing in this rule takes into account uncertainty and encourages exploration of less frequently selected actions. The contrast is evident: while the Bayesian approach (Thompson sampling) deals with uncertainty via the probability laws of posterior Bayesian inference, the UCB approach uses concentration inequalities. This contraposition is also a common theme in Theoretical Statistics. A common variation to the second term is to multiply it by a by a constant, in an attempt to increase or decrease the effects of uncertainty.&lt;/p&gt;
+
+&lt;p&gt;Both Thompson Sampling and UCB provide a solution to the dilemma of &lt;em&gt;exploitation&lt;/em&gt; &lt;em&gt;vs&lt;/em&gt; &lt;em&gt;exploration&lt;/em&gt;. A simplest approach is to only choose the arm with the highest $\hat{\mu}$, except with a probability $\epsilon$, in which case we choose completely at random. Most of the time, this $\epsilon$-greedy strategy is usually an underperformer. Also $\epsilon$ should ogo to zero eventually, but it is hard to know at which speed it is convenient.&lt;/p&gt;
+
+&lt;p&gt;A recent must-read reference is &lt;a href=&#34;blabla&#34; target=&#34;_blank&#34;&gt;Riquelme et al&lt;/a&gt; (2018), which discusses Deep Bayesian Bandits. Here, the $X_i$ are not independent and $K$ is very large. In fact, the input space can be treated as a continuous space. Essentially, what deep neural networks do is find common patterns in the input space and effectively reduce $K$. Multi-armed bandit problems are building blocks for more complicated tasks, where often it is necessary to learn from images or other complex data.&lt;/p&gt;
+
+&lt;p&gt;Several variants of the multi-armed bandit problem exist. One direction is to add additional structure; for a recent survey and state-of-the-art approach we have &lt;a href=&#34;combes&#34; target=&#34;_blank&#34;&gt;Combes et al&lt;/a&gt; (2017). Another direction is to assume that the $X_i$ change over time, the so-called non-stationary bandits. This is a hard problem, and current approaches can be improved, both theoretically and pragmatically (&lt;em&gt;c.f.&lt;/em&gt; &lt;a href=&#34;besbes&#34; target=&#34;_blank&#34;&gt;Besbes et al&lt;/a&gt; (2014) and &lt;a href=&#34;wu&#34; target=&#34;_blank&#34;&gt;Wu et al&lt;/a&gt; (2018)).&lt;/p&gt;
+
+&lt;p&gt;A natural question is to ask if the principles of multi-armed bandit can be applied to model selection and hyper-parameter tuning in statistics. This technique is known as &lt;em&gt;Bayesian optimization&lt;/em&gt; and is also an active area of research. For a recent survey, we can consult &lt;a href=&#34;https://ieeexplore.ieee.org/document/7352306&#34; target=&#34;_blank&#34;&gt;Shahriari et al&lt;/a&gt; (2016).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reinforcement Learning&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MonteCarlo Tree Search&lt;/strong&gt; (MCTS). The multi-armed bandit approach applies to problems where the set of possible choices remains constant. In many situations, the action set depends on previous decisions, as well as chance. MCTS is used for repeated playouts, where tasks yield a reward only when they are completed. This is a common situation in games. MCTS has been a key tool in developing computer programs capable of defeating master players of Backgammon, Chess or Go.&lt;/p&gt;
+
+&lt;p&gt;The idea is simple:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deep reinforcement learning&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;web&#34;&gt;Web&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;[&lt;a href=&#34;https://spinningup.openai.com](&#34; target=&#34;_blank&#34;&gt;https://spinningup.openai.com](&lt;/a&gt;) : It contains&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;reading-list&#34;&gt;Reading list&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;1_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;8_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;9_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;10_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;11_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;12_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;13_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;14_&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Chapelle &amp;amp; Li An Empirical Evaluation of Thompson Sampling&lt;/li&gt;
+&lt;li&gt;Shahriari&lt;/li&gt;
+&lt;li&gt;Thompson, William R. &amp;ldquo;On the likelihood that one unknown probability exceeds another in view of the evidence of two samples&amp;rdquo;. Biometrika, 25(3–4):285–294, 1933.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;oneday&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Download this as bibtex&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Use YAML!</title>
-      <link>https://mauriciogtec.github.io/post/use_yaml/</link>
+      <link>https://mauriciogtec.github.io/post/use-yaml/</link>
       <pubDate>Tue, 11 Sep 2018 14:14:07 -0500</pubDate>
       
-      <guid>https://mauriciogtec.github.io/post/use_yaml/</guid>
+      <guid>https://mauriciogtec.github.io/post/use-yaml/</guid>
       <description>
 
 &lt;p&gt;A common issue when starting a new project involving data is choosing a format in which to store the data.&lt;/p&gt;
