@@ -51,7 +51,7 @@
 
 &lt;p&gt;$$ T\mu_*  - \sum_{t=1}^T \mu_{\pi(t)} $$&lt;/p&gt;
 
-&lt;p&gt;where $\mu_* = \max_i E(X_i)$, and $\mu_{\pi(t)}$ is the mean of the random variable chosen at time $t$ by the sampling strategy $\pi$. The idea of regret was introduced by &lt;a href=&#34;sdfsd&#34; target=&#34;_blank&#34;&gt;Lai and Robbins&lt;/a&gt; (1985). A recent highly-cited survey is &lt;a href=&#34;sdfsdf&#34; target=&#34;_blank&#34;&gt;(Bubeck &amp;amp; Bianchi, 2012)&lt;/a&gt;. Not suprisingly, the analysis techniques rely on probability concentration inequalities. For example, an application of Hoeffding&amp;rsquo;s inequality leads to the so-called &lt;em&gt;upper confidence bound&lt;/em&gt; (UCB) rule, namely,
+&lt;p&gt;where $\mu_* = \max_i E(X_i)$, and $\mu_{\pi(t)}$ is the mean of the random variable chosen at time $t$ by the sampling strategy $\pi$. The idea of regret was introduced by &lt;a href=&#34;sdfsd&#34; target=&#34;_blank&#34;&gt;Lai and Robbins&lt;/a&gt; (1985). A recent highly-cited survey is &lt;a href=&#34;sdfsdf&#34; target=&#34;_blank&#34;&gt;(Bubeck &amp;amp; Bianchi, 2012)&lt;/a&gt;. Not surprisingly, the analysis techniques rely on probability concentration inequalities. For example, an application of Hoeffding&amp;rsquo;s inequality leads to the so-called &lt;em&gt;upper confidence bound&lt;/em&gt; (UCB) rule, namely,
 $$
 \pi(t) = \mathrm{argmax}_i \; \hat{\mu}_i + \sqrt{\frac{2\log t}{n_i}}
 $$&lt;/p&gt;
@@ -62,7 +62,7 @@ $$&lt;/p&gt;
 
 &lt;p&gt;A recent must-read reference is &lt;a href=&#34;blabla&#34; target=&#34;_blank&#34;&gt;Riquelme et al&lt;/a&gt; (2018), which discusses Deep Bayesian Bandits. Here, the $X_i$ are not independent and $K$ is very large. In fact, the input space can be treated as a continuous space. Essentially, what deep neural networks do is find common patterns in the input space and effectively reduce $K$. Multi-armed bandit problems are building blocks for more complicated tasks, where often it is necessary to learn from images or other complex data.&lt;/p&gt;
 
-&lt;p&gt;Several variants of the multi-armed bandit problem exist. One direction is to add additional structure; for a recent survey and state-of-the-art approach we have &lt;a href=&#34;combes&#34; target=&#34;_blank&#34;&gt;Combes et al&lt;/a&gt; (2017). Another direction is to assume that the $X_i$ change over time, the so-called non-stationary bandits. This is a hard problem, and current approaches can be improved, both theoretically and pragmatically (&lt;em&gt;c.f.&lt;/em&gt; &lt;a href=&#34;besbes&#34; target=&#34;_blank&#34;&gt;Besbes et al&lt;/a&gt; (2014) and &lt;a href=&#34;wu&#34; target=&#34;_blank&#34;&gt;Wu et al&lt;/a&gt; (2018)).&lt;/p&gt;
+&lt;p&gt;Several variants of the multi-armed bandit problem exist. One direction is to add additional structure; for a recent survey and state-of-the-art approach we have &lt;a href=&#34;combes&#34; target=&#34;_blank&#34;&gt;Combes et al&lt;/a&gt; (2017). Another direction is to allow the distribution of the $X_i$ to change over time: the so-called non-stationary bandits. This is a hard problem, and current approaches can be improved, both theoretically and pragmatically (&lt;em&gt;c.f.&lt;/em&gt; &lt;a href=&#34;besbes&#34; target=&#34;_blank&#34;&gt;Besbes et al&lt;/a&gt; (2014) and &lt;a href=&#34;wu&#34; target=&#34;_blank&#34;&gt;Wu et al&lt;/a&gt; (2018)).&lt;/p&gt;
 
 &lt;p&gt;A natural question is to ask if the principles of multi-armed bandit can be applied to model selection and hyper-parameter tuning in statistics. This technique is known as &lt;em&gt;Bayesian Optimization&lt;/em&gt; and is also an active area of research. For a recent survey, we can consult &lt;a href=&#34;https://ieeexplore.ieee.org/document/7352306&#34; target=&#34;_blank&#34;&gt;Shahriari et al&lt;/a&gt; (2016).&lt;/p&gt;
 
@@ -97,7 +97,9 @@ This equation is known as the &lt;a href=&#34;bellman&#34; target=&#34;_blank&#3
 
 &lt;p&gt;Often, a discount factor is added to the definition of $G_t$, so that $G&lt;em&gt;t := \sum&lt;/em&gt;{u=t}^\infty \gamma^{u-t}R&lt;em&gt;{s(u), \pi&lt;/em&gt;*(u)}$. With $0&amp;lt;\gamma &amp;lt; 1$, this guarantees convergence for non finite tasks, and the Bellman equation can be adapted accordingly. However, this as a technical addition, rather than an essential part of the idea.&lt;/p&gt;
 
-&lt;p&gt;The Bellman equation leads to several schemes for approximate solutions. One of the most celebrated approaches, with numerous variants and extensions, is &lt;a href=&#34;bellman&#34; target=&#34;_blank&#34;&gt;$Q$-learning&lt;/a&gt;. We start by creating a table for each possible pair $(s, a)$. Then, at each step of the algorithm, given a current approximation $q$ to $Q$, a starting state $s$, a selected action $a$, a reward observed after choosing $a$, and the new state $s&amp;rsquo;$ determined by the environment from the decision. We can perform the update
+&lt;h3 id=&#34;q-learning&#34;&gt;Q-Learning&lt;/h3&gt;
+
+&lt;p&gt;The Bellman equation leads to several schemes for approximate solutions. One of the most celebrated approaches, with numerous variants and extensions, is $Q$-learning &lt;a href=&#34;watkins&#34; target=&#34;_blank&#34;&gt;(Watkins, 1989)&lt;/a&gt;. We start by creating a table for each possible pair $(s, a)$. Then, at each step of the algorithm, given a current approximation $q$ to $Q$, a starting state $s$, a selected action $a$, a reward observed after choosing $a$, and the new state $s&amp;rsquo;$ determined by the environment from the decision. We can perform the update
 $$ q(s, a) \leftarrow (1 - \alpha) q(s, a) + \alpha(r + \max&lt;em&gt;{a&amp;rsquo;} q(s&amp;rsquo;, a&amp;rsquo;)) \quad \text{for a learning rate } \quad 0&amp;lt;\alpha&amp;lt;1. $$
 At the next iteration, the new selected action will be $\mathrm{argmax}&lt;/em&gt;{a&amp;rsquo; \in A_{s&amp;rsquo;}} q(s&amp;rsquo;, a&amp;rsquo;)$. We repeat the algorithm until convergence of $q$ or until the rewards reach a desired average level.&lt;/p&gt;
 
@@ -115,21 +117,21 @@ The choice of feature maps is non-trivial, and it depends on the domain of appli
 $$
 l(\beta \mid s, a, r, s&amp;rsquo;, a&amp;rsquo;) = (r + f(\beta \mid s&amp;rsquo;, a&amp;rsquo;) - f(\beta \mid s, a))^2.
 $$
-Then we can optimize with respect to $\beta$, so that $f$ will approximate $Q$ by the Bellman equation. This is exactly what is done in Deep Q-earning &lt;a href=&#34;mnih&#34; target=&#34;_blank&#34;&gt;(Mnih et al., 2013)&lt;/a&gt;. Since deep learning is simply a highly flexible functional model for $f$. This has been useful when learning from image or text data, tasks in which neural networks provide the best known results.&lt;/p&gt;
+Then we can optimize with respect to $\beta$, so that $f$ will approximate $Q$ by the Bellman equation. This is exactly what is done in Deep Q-Learning &lt;a href=&#34;mnih&#34; target=&#34;_blank&#34;&gt;(Mnih et al., 2013)&lt;/a&gt;. Since deep learning is simply a highly flexible functional model for $f$. This has been useful when learning from image or text data, tasks in which neural networks provide the best known results.&lt;/p&gt;
 
-&lt;p&gt;The above loss kernel is only define for &lt;em&gt;one&lt;/em&gt; transition. So an usual approach is to use an online optimization algorithm, which can update $f$ with one data point: the usual choice is stochastic gradient descent. It also has been demonstrated that reusing older transitions&amp;ndash;known as experience replay &lt;a href=&#34;schaul&#34; target=&#34;_blank&#34;&gt;(Schaul et al., 2015)&lt;/a&gt;&amp;ndash;improves the behaviour.&lt;/p&gt;
+&lt;p&gt;The above loss kernel is only define for &lt;em&gt;one&lt;/em&gt; transition. So an usual approach is to use an online optimization algorithm, which can update $f$ with one data point: the usual choice is stochastic gradient descent. It also has been demonstrated that reusing older transitions&amp;ndash;known as experience replay &lt;a href=&#34;schaul&#34; target=&#34;_blank&#34;&gt;(Schaul et al., 2015)&lt;/a&gt;&amp;ndash;improves the behaviour. Another alternative is to do batch updates or to have parallel actors learning simultaneously &lt;a href=&#34;mnih&#34; target=&#34;_blank&#34;&gt;(Mnih et al., 2016)&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;It&amp;rsquo;s impossible to summarise the entire literature. I am missing several popular approaches; important omissions are policy gradient methods. I will mention them briefly on the deep reinforcement learning section.&lt;/p&gt;
+&lt;p&gt;Another popular and different approach in reinforcement learning problems are Monte Carlo tree-search algorithms. We explain these in the following section.&lt;/p&gt;
 
 &lt;h3 id=&#34;montecarlo-tree-search-mcts&#34;&gt;MonteCarlo Tree Search (MCTS).&lt;/h3&gt;
 
-&lt;p&gt;MCTS is used for repeated playouts, where tasks yield a reward only when they are completed. This is a common situation in games. MCTS has been a key tool in developing computer programs capable of defeating master players of Backgammon, Chess or Go.&lt;/p&gt;
+&lt;p&gt;MCTS is used for tasks composed of repeated playouts, usually when a reward is received only when the playout is completed. This is a common situation in board games, in which the reward signal is imply win or loss at the end of the game.&lt;/p&gt;
 
-&lt;p&gt;The idea is simple:&lt;/p&gt;
+&lt;p&gt;MCTS was a key tool in developing computer programs capable of defeating master players of Backgammon, Chess and Go. In its heart, it is simply using the theory developed for multi-armed bandits with changing states. A highly-cited review is &lt;a href=&#34;browne&#34; target=&#34;_blank&#34;&gt;(Browne et al., 2012)&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;An interesting new lie of reserach&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Deep reinforcement learning&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The idea is way simple:
+- We&amp;rsquo;ll solve an independent bandit problem. For each visited state: we select according to Thompson sampling or UCB1 if the state has been visited before, or randomly if it&amp;rsquo;s never been seen.
+- When a reward is seen, it is propagated back to all visited states during that playout. For win-loss games, we record at each state the number wins and losses associated to it. Wins count +1 and losses as -1.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -173,13 +175,13 @@ Then we can optimize with respect to $\beta$, so that $f$ will approximate $Q$ b
 
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 
+&lt;p&gt;&lt;a href=&#34;oneday&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Download as bibtex&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;ul&gt;
 &lt;li&gt;Chapelle &amp;amp; Li An Empirical Evaluation of Thompson Sampling&lt;/li&gt;
 &lt;li&gt;Shahriari&lt;/li&gt;
 &lt;li&gt;Thompson, William R. &amp;ldquo;On the likelihood that one unknown probability exceeds another in view of the evidence of two samples&amp;rdquo;. Biometrika, 25(3–4):285–294, 1933.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;oneday&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Download this as bibtex&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
