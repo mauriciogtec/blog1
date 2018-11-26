@@ -76,15 +76,6 @@
     
     <url>
     
-      <loc>https://mauriciogtec.github.io/tags/csv/</loc>
-      <lastmod>2018-09-11T14:14:07-05:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://mauriciogtec.github.io/categories/lbj/</loc>
       <lastmod>2018-09-11T14:14:07-05:00</lastmod>
       <priority>0</priority>
@@ -111,26 +102,7 @@
     
     <url>
     
-      <loc>https://mauriciogtec.github.io/tags/python/</loc>
-      <lastmod>2018-09-11T14:14:07-05:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://mauriciogtec.github.io/tags/reinforcement-learning/</loc>
-      <lastmod>2018-11-24T11:11:35-06:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://mauriciogtec.github.io/tags/</loc>
-      <lastmod>2018-09-11T14:14:07-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -149,6 +121,33 @@
     
       <loc>https://mauriciogtec.github.io/</loc>
       <lastmod>2016-04-20T00:00:00-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://mauriciogtec.github.io/tags/csv/</loc>
+      <lastmod>2018-09-11T14:14:07-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://mauriciogtec.github.io/tags/python/</loc>
+      <lastmod>2018-09-11T14:14:07-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://mauriciogtec.github.io/tags/reinforcement-learning/</loc>
+      <lastmod>2018-11-24T11:11:35-06:00</lastmod>
       <priority>0</priority>
     </url>
     

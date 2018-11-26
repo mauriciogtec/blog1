@@ -7,13 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 11 Sep 2018 14:14:07 -0500</lastBuildDate>
     
 	<atom:link href="https://mauriciogtec.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Csv</title>
+      <title>csv</title>
       <link>https://mauriciogtec.github.io/tags/csv/</link>
       <pubDate>Tue, 11 Sep 2018 14:14:07 -0500</pubDate>
       
@@ -22,7 +21,7 @@
     </item>
     
     <item>
-      <title>Python</title>
+      <title>python</title>
       <link>https://mauriciogtec.github.io/tags/python/</link>
       <pubDate>Tue, 11 Sep 2018 14:14:07 -0500</pubDate>
       
@@ -31,7 +30,7 @@
     </item>
     
     <item>
-      <title>Reinforcement learning</title>
+      <title>reinforcement learning</title>
       <link>https://mauriciogtec.github.io/tags/reinforcement-learning/</link>
       <pubDate>Sat, 24 Nov 2018 11:11:35 -0600</pubDate>
       
@@ -40,7 +39,7 @@
     </item>
     
     <item>
-      <title>Yaml</title>
+      <title>yaml</title>
       <link>https://mauriciogtec.github.io/tags/yaml/</link>
       <pubDate>Tue, 11 Sep 2018 14:14:07 -0500</pubDate>
       
