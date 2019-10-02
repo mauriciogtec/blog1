@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Julia on Unknot</title>
+    <link>https://mauriciogtec.github.io/tags/julia/</link>
+    <description>Recent content in Julia on Unknot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 16 Nov 2018 17:23:07 -0600</lastBuildDate>
+    
+	<atom:link href="https://mauriciogtec.github.io/tags/julia/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Distributed Computing: Julia vs MPI (Julia is super easy)</title>
+      <link>https://mauriciogtec.github.io/post/mpi-vs-julia/</link>
+      <pubDate>Fri, 16 Nov 2018 17:23:07 -0600</pubDate>
+      
+      <guid>https://mauriciogtec.github.io/post/mpi-vs-julia/</guid>
+      <description>In this tiny post, I show with a minimal example the main difference between the distributed computing approaches of Julia and MPI. For this we will use Stampede 2, the University of Texas&amp;rsquo; supercomputer (the faster at any university as of now). This is an Intel Skylake cluster that uses SLURM as it&amp;rsquo;s job queue system. We will show step-by-step how to run a distributed hello-world program in both languages.</description>
+    </item>
+    
+  </channel>
+</rss>

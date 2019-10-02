@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graph-fused lasso on Unknot</title>
+    <link>https://mauriciogtec.github.io/tags/graph-fused-lasso/</link>
+    <description>Recent content in Graph-fused lasso on Unknot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 21 Dec 2018 22:36:34 -0600</lastBuildDate>
+    
+	<atom:link href="https://mauriciogtec.github.io/tags/graph-fused-lasso/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spatiotemporal GFL images</title>
+      <link>https://mauriciogtec.github.io/post/spatiotemporalgfl/</link>
+      <pubDate>Fri, 21 Dec 2018 22:36:34 -0600</pubDate>
+      
+      <guid>https://mauriciogtec.github.io/post/spatiotemporalgfl/</guid>
+      <description>Below are some images, produced with ggplot2, for our work on spatiotemporal smoothing with the graph-fused lasso.
+  
+ The figures on the left (red) show the productivity (dollars per hour) at the airport, and the figures at the right in downtown (blue). The two top figures show the models without postprocessing, and the bottom two use Bernstein polynomials smoothing and 400 degrees of freedom.
+To do
+ The image may improve using facet instead of four separate gifs</description>
+    </item>
+    
+  </channel>
+</rss>

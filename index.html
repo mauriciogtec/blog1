@@ -72,6 +72,20 @@
 
   
   
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-123676799-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
   
 
   
@@ -180,47 +194,9 @@
         
 
         <li class="nav-item">
-          <a href="/#publications_selected" data-target="#publications_selected">
+          <a href="/#publications" data-target="#publications">
             
             <span>Publications</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#projects" data-target="#projects">
-            
-            <span>Projects</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#teaching" data-target="#teaching">
-            
-            <span>Teaching</span>
             
           </a>
         </li>
@@ -358,11 +334,9 @@
 
 <h3 id="about-me">About me</h3>
 
-<p>Hi! I am Mauricio Garcia Tec, inquisitive data scientist and graduate student at UT Austin, where I currently work in developing novel algorithms for fitting spatiotemporal Machine Learning and Statistical models in large-data scenarios.</p>
+<p>Hi! I am an inquisitive Ph.D. student at UT Austin. Passionate for the art of mathematics and computers, I began my career tackling real-world problems with economic and financial data. Today, I seek to contribute to ongoing AI research from two perspectives: by developing scalable, parallelizable and decentralized algorithms, and by harnessing Probability and Statistics to provide insights and suggest smarter models. Please reach out if you want to collaborate.</p>
 
-<p>I acquired broad experience tackling real-world data problems throughout my ventures in quantitative finance, public policy research, and university lecturing. See my <a href="https://www.linkedin.com/in/mauriciogtec/" target="_blank">LinkedIn profile</a> for more details about my skills and experience.</p>
-
-<p>My other interests include Bayesian statistics, which provide an elegant framework for statistical modelling with better model composability, model selection, and uncertainty quantification than traditional approaches. Bayesian models are usually slower to train than their classical counterparts, but we are working to change that.</p>
+<p>See my <a href="https://www.linkedin.com/in/mauriciogtec/" target="_blank">LinkedIn profile</a> or <a href="https://github.com/mauriciogtec/blog/raw/master/resources/resume.pdf" target="_blank">resume</a> for more details about my skills and experience.</p>
 
 
     <div class="row">
@@ -372,17 +346,19 @@
         <h3>Interests</h3>
         <ul class="ul-interests">
           
-          <li>Bayesian Statistics</li>
-          
-          <li>Machine Learning</li>
-          
           <li>Deep Learning</li>
           
-          <li>High-performance Computing</li>
+          <li>Bayesian Nonparametrics</li>
           
-          <li>Artificial Intelligence</li>
+          <li>Reinforcement Learning</li>
           
-          <li>Software Development</li>
+          <li>Dynamic Models and Particle Filters</li>
+          
+          <li>Network Data and Models</li>
+          
+          <li>Natural Language Processing</li>
+          
+          <li>Applied Statistical Analysis</li>
           
         </ul>
       </div>
@@ -468,6 +444,94 @@
       
           
       
+
+      
+      
+        
+        
+          
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  
+  
+  
+  <div>
+    
+    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+      <span itemprop="name">Mauricio Tec</span>
+    </span>
+    
+  </div>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-12-21 22:36:34 -0600 CST" itemprop="datePublished">
+    <time datetime="2018-12-21 22:36:34 -0600 CST" itemprop="dateModified">
+      Dec 21, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Mauricio Tec">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="https://mauriciogtec.github.io/post/spatiotemporalgfl/" itemprop="url">Spatiotemporal GFL images</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    Below are some images, produced with ggplot2, for our work on spatiotemporal smoothing with the graph-fused lasso.
+  
+ The figures on the left (red) show the productivity (dollars per hour) at the airport, and the figures at the right in downtown (blue). The two top figures show the models without postprocessing, and the bottom two use Bernstein polynomials smoothing and 400 degrees of freedom.
+To do
+ The image may improve using facet instead of four separate gifs
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="https://mauriciogtec.github.io/post/spatiotemporalgfl/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+        
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
           
       
 
@@ -484,9 +548,202 @@
 
   
   
-  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+  
+  <div>
+    
+    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+      <span itemprop="name">Mauricio Tec</span>
+    </span>
+    
+  </div>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-11-24 11:11:35 -0600 CST" itemprop="datePublished">
+    <time datetime="2018-11-24 11:11:35 -0600 CST" itemprop="dateModified">
+      Nov 24, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Mauricio Tec">
   </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    16 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="https://mauriciogtec.github.io/post/rl-reading-list/" itemprop="url">Reinforcement Learning Reading List</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    Current Draft: 2018-11-26
+Here&rsquo;s a list to Reinforcement Learning ideas and papers. It is mostly for personal research, as part of my work as PhD student at the University of Texas at Austin.
+ Course: Research Elective Fall 2019 Advisor: Prof. Stephen G. Walker  Note: This is not an extensive literature review, but a broad overview to guide our research, with the specific goal of exploring and extracting the statistical and probabilistic ideas and areas of opportunity in reinforcement learning literature.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="https://mauriciogtec.github.io/post/rl-reading-list/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+        
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+
+      
+      
+        
+        
+          
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  
+  
+  
+  <div>
+    
+    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+      <span itemprop="name">Mauricio Tec</span>
+    </span>
+    
+  </div>
+  
+
+  <span class="article-date">
+    
+    <meta content="2018-11-16 17:23:07 -0600 CST" itemprop="datePublished">
+    <time datetime="2018-11-16 17:23:07 -0600 CST" itemprop="dateModified">
+      Nov 16, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Mauricio Tec">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="https://mauriciogtec.github.io/categories/julia/">Julia</a>
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="https://mauriciogtec.github.io/post/mpi-vs-julia/" itemprop="url">Distributed Computing: Julia vs MPI (Julia is super easy)</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    In this tiny post, I show with a minimal example the main difference between the distributed computing approaches of Julia and MPI. For this we will use Stampede 2, the University of Texas&rsquo; supercomputer (the faster at any university as of now). This is an Intel Skylake cluster that uses SLURM as it&rsquo;s job queue system. We will show step-by-step how to run a distributed hello-world program in both languages.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="https://mauriciogtec.github.io/post/mpi-vs-julia/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+        
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
+
+      
+      
+        
+        
+          
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  
+  
+  
+  <div>
+    
+    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+      <span itemprop="name">Mauricio Tec</span>
+    </span>
+    
+  </div>
   
 
   <span class="article-date">
@@ -533,7 +790,7 @@
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="https://mauriciogtec.github.io/post/use_yaml/" itemprop="url">Use YAML!</a>
+    <a href="https://mauriciogtec.github.io/post/use-yaml/" itemprop="url">Use YAML!</a>
   </h3>
   <div class="article-style" itemprop="articleBody">
     
@@ -543,7 +800,7 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="https://mauriciogtec.github.io/post/use_yaml/" class="btn btn-primary btn-outline">
+    <a href="https://mauriciogtec.github.io/post/use-yaml/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -575,9 +832,14 @@ While modern approaches in Big Data endorse the strategy of first extracting hig
 
   
   
-  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Mauricio Tec">
-  </span>
+  
+  <div>
+    
+    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+      <span itemprop="name">Mauricio Tec</span>
+    </span>
+    
+  </div>
   
 
   <span class="article-date">
@@ -645,79 +907,34 @@ Knots and the name of this blog&hellip; Before becoming a PhD student, I spent a
   
   
   
-  <section id="projects" class="home-section">
+  <section id="publications" class="home-section">
     <div class="container">
       
 
 
 
+
 <div class="row">
   <div class="col-xs-12 col-md-4 section-heading">
-    <h1>Projects</h1>
+    <h1>Publications</h1>
+    
     
   </div>
   <div class="col-xs-12 col-md-8">
+    <p><ul>
+<li><p>Williamson, S., <strong>Mauricio Tec</strong>. <a href="https://arxiv.org/pdf/1810.06738.pdf" target="_blank">&ldquo;Random clique covers for graphs with local density and global sparsity&rdquo;</a>. Submitted to AISTATS 2019. Preprint arXiv:1810.06738, 2018.</p></li>
+
+<li><p>Zuniga-Garcia, N., <strong>Mauricio Tec</strong>, J. G. Scott, N. Ruiz-Juri, R. Machemehl. <a href="https://arxiv.org/pdf/1809.10329.pdf'" target="_blank">&ldquo;Evaluation of Ride-Sourcing Search Frictions and Driver Productivity: A Spatial Denoising Approach&rdquo;</a>. Preprint arXiv:1809.10329. Presented at INFORMS 2018. In review for publication by Transportation Research Part C, 2018.</p></li>
+</ul>
+</p>
+
+    
+      
     
 
     
-    
 
     
-
-    
-
-    <div class="row isotope projects-container js-layout-masonry">
-
-      
-      
-      
-      
-      
-      
-      
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 project-item isotope-item ">
-        <div class="card">
-          
-          <a href="https://github.com/mauriciogtec/AdaptiveRejectionSampling.jl" title="" class="card-image hover-overlay"
-             target="_blank">
-            <img src="/img/adaptive-rejection-sampling/thumbnail.png" alt="" class="img-responsive">
-          </a>
-          
-          <div class="card-text">
-            <h4><a href="https://github.com/mauriciogtec/AdaptiveRejectionSampling.jl" target="_blank">Julia Package: Adaptive Rejection Sampling</a></h4>
-            <div class="card-desription">
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      
-      
-      
-      
-      
-      
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 project-item isotope-item ">
-        <div class="card">
-          
-          <a href="https://github.com/BigDataStats/pldensity" title="" class="card-image hover-overlay"
-             target="_blank">
-            <img src="/img/pldensity/thumbnail.png" alt="" class="img-responsive">
-          </a>
-          
-          <div class="card-text">
-            <h4><a href="https://github.com/BigDataStats/pldensity" target="_blank">R package: Non-parametric Density Estimation with Particle Learning</a></h4>
-            <div class="card-desription">
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      
-
-    </div>
-
     
 
   </div>
