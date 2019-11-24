@@ -22,12 +22,14 @@
     </item>
     
     <item>
-      <title>Posts</title>
-      <link>https://mauriciogtec.github.io/home/posts/</link>
+      <title>Publications</title>
+      <link>https://mauriciogtec.github.io/home/publications/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
-      <guid>https://mauriciogtec.github.io/home/posts/</guid>
-      <description></description>
+      <guid>https://mauriciogtec.github.io/home/publications/</guid>
+      <description>Williamson, S., Mauricio Tec. &amp;ldquo;Random clique covers for graphs with local density and global sparsity&amp;rdquo;. Proceedings of the Conference on Uncertainty in Artificial Intelligence (UAI), 2018.
+ Zuniga-Garcia, N., Mauricio Tec, J. G. Scott, N. Ruiz-Juri, R. Machemehl. &amp;ldquo;Evaluation of Ride-Sourcing Search Frictions and Driver Productivity: A Spatial Denoising Approach&amp;rdquo;. Transportation Research Part C, 2019.
+ Mauricio Tec, N. Zuniga-Garcia, R. Machemehl, J. G. Scott. &amp;ldquo;Large-Scale Spatiotemporal Density Smoothing with the Graph-fused Elastic Net: Application to Ride-sourcing Driver Productivity&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -40,14 +42,12 @@
     </item>
     
     <item>
-      <title>Publications</title>
-      <link>https://mauriciogtec.github.io/home/publications/</link>
+      <title>Posts</title>
+      <link>https://mauriciogtec.github.io/home/posts/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
-      <guid>https://mauriciogtec.github.io/home/publications/</guid>
-      <description> Williamson, S., Mauricio Tec. &amp;ldquo;Random clique covers for graphs with local density and global sparsity&amp;rdquo;. Submitted to AISTATS 2019. Preprint arXiv:1810.06738, 2018.
- Zuniga-Garcia, N., Mauricio Tec, J. G. Scott, N. Ruiz-Juri, R. Machemehl. &amp;ldquo;Evaluation of Ride-Sourcing Search Frictions and Driver Productivity: A Spatial Denoising Approach&amp;rdquo;. Preprint arXiv:1809.10329. Presented at INFORMS 2018. In review for publication by Transportation Research Part C, 2018.
-  </description>
+      <guid>https://mauriciogtec.github.io/home/posts/</guid>
+      <description></description>
     </item>
     
     <item>
