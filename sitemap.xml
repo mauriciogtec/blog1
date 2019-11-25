@@ -20,6 +20,14 @@
     
     <url>
     
+      <loc>https://mauriciogtec.github.io/post/mpi-vs-julia/</loc>
+      <lastmod>2018-11-16T17:23:07-06:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://mauriciogtec.github.io/post/use-yaml/</loc>
       <lastmod>2018-09-11T14:14:07-05:00</lastmod>
     </url>
@@ -102,6 +110,24 @@
     
     <url>
     
+      <loc>https://mauriciogtec.github.io/tags/julia/</loc>
+      <lastmod>2018-11-16T17:23:07-06:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://mauriciogtec.github.io/categories/julia/</loc>
+      <lastmod>2018-11-16T17:23:07-06:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://mauriciogtec.github.io/categories/lbj/</loc>
       <lastmod>2018-09-11T14:14:07-05:00</lastmod>
       <priority>0</priority>
@@ -113,6 +139,15 @@
     
       <loc>https://mauriciogtec.github.io/</loc>
       <lastmod>2016-04-20T00:00:00-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://mauriciogtec.github.io/tags/mpi/</loc>
+      <lastmod>2018-11-16T17:23:07-06:00</lastmod>
       <priority>0</priority>
     </url>
     

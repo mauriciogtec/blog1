@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mauricio Tec - The Unknot on Mauricio Tec - The Unknot</title>
+    <title>Mauricio Tec on Mauricio Tec</title>
     <link>https://mauriciogtec.github.io/</link>
-    <description>Recent content in Mauricio Tec - The Unknot on Mauricio Tec - The Unknot</description>
+    <description>Recent content in Mauricio Tec on Mauricio Tec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
@@ -313,6 +313,73 @@ Then we can optimize with respect to $\beta$, so that $f$ will approximate $Q$ b
 &lt;p&gt;&lt;strong&gt;14_&lt;/strong&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Distributed Computing: Julia vs MPI (Julia is super easy)</title>
+      <link>https://mauriciogtec.github.io/post/mpi-vs-julia/</link>
+      <pubDate>Fri, 16 Nov 2018 17:23:07 -0600</pubDate>
+      
+      <guid>https://mauriciogtec.github.io/post/mpi-vs-julia/</guid>
+      <description>
+
+&lt;p&gt;In this tiny post, I show with a minimal example the main difference between the distributed computing approaches of Julia and MPI. For this we will use Stampede 2, the University of Texas&amp;rsquo; supercomputer (the faster at any university as of now). This is an Intel Skylake cluster that uses SLURM as it&amp;rsquo;s job queue system. We will show step-by-step how to run a distributed hello-world program in both languages.&lt;/p&gt;
+
+&lt;p&gt;In this post, I don&amp;rsquo;t want to suggest that a specific approach is better. The benefits of MPI are well-known; what I do want to do, however, is to demonstrate how easy it is to set-up Julia&amp;ndash;which is less known. The objective of the creators of Julia was to create a high-level language that can perform with similar performance to compiled C code, but with a high-level feel to it. Personally, I&amp;rsquo;ve found this extremely useful for my research.&lt;/p&gt;
+
+&lt;p&gt;Julia is not frustration free. While Julia 1.0 is a major step, bringing several performance stability improvements and language coherence; there is still a long way to go, especially since libraries aren&amp;rsquo;t as mature as in Python or R, or other languages that I commonly need for my research. That being said, there is a great feeling to it, and the more I use the more I like it. Library loading times still bug me, but if you are use to compile C code all the time, it&amp;rsquo;s a reasonable price to pay for easier debugging and faster development.&lt;/p&gt;
+
+&lt;p&gt;This post is neither a tutorial on distributed computing, Julia or C. I will only focus on the minimal requirements of running a distributed job on a SLURM cluster. This post is an attempt to explain these differences to myself, so if you find any of my statements inaccurate, you are probably right&amp;ndash;please let me know if this is the case.&lt;/p&gt;
+
+&lt;h2 id=&#34;key-concepts&#34;&gt;Key concepts&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Node&lt;/strong&gt;: A computer. It can be make of several cores. For example, the supercomputer Stampede2 has Skylake nodes, which are made of 48 cores each.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Processes&lt;/strong&gt;: Each node can run multiple processes: i.e., instances doing computations. Typically, when multiple processes are run in one node, they are assigned to different processors. Processors handle multiple processes via multi-threading and queues.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cluster&lt;/strong&gt;: Many nodes wired together.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Distributed computing&lt;/strong&gt;: It&amp;rsquo;s a form of parallel computing that runs on clusters. Nodes don&amp;rsquo;t share memory: variables of the program only exist locally. Any form of data communication between nodes will have to be programmed explicitly. It is usually harder to implement than multi-threading, which is shared-memory parallelism. The latter is limited, since it is much more expensive to build larger computers than wire them together.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MPI&lt;/strong&gt; (Message Passing Interface): A library for C that is used for distributed computing. It defines communication protocols between nodes at a relatively high level.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;hello-world-with-mpi&#34;&gt;Hello world with MPI&lt;/h2&gt;
+
+&lt;p&gt;MPI&amp;rsquo;s basic approach to distributed computing is to take a C program that is executed in parallel by every node such that every node executes &lt;em&gt;EXACTLY&lt;/em&gt; the same program. When nodes should perform different tasks, the code must contain conditional statements with specific tasks in them. MPI gives an API to query which node is running the program.&lt;/p&gt;
+
+&lt;p&gt;The following example is minimally modified from &lt;a href=&#34;http://mpitutorial.com/tutorials/mpi-hello-world/&#34; target=&#34;_blank&#34;&gt;this tutorial&lt;/a&gt;. Please review it for a more detailed explanation of the code. They key part is that we are importing &lt;code&gt;&amp;lt;mpi.h&amp;gt;&lt;/code&gt; from the beginning, which provides the functions to request the process.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;#include &amp;lt;mpi.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+
+int main(int argc, char** argv) {
+    // Initialize the MPI environment (every program starts like this)
+    MPI_Init(&amp;amp;argc, &amp;amp;argv);
+
+    // Get the number of processes
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &amp;amp;world_size);
+
+    // Get the rank of the process; rank is id
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &amp;amp;world_rank);
+
+    // Get the name of the processor
+    char processor_name[MPI_MAX_PROCESSOR_NAME];
+    int name_len;
+    MPI_Get_processor_name(processor_name, &amp;amp;name_len);
+
+    // Print off a hello world message
+    printf(&amp;quot;Hello world from processor %s, rank %d out of %d processors\n&amp;quot;,
+    processor_name, world_rank, world_size);
+
+    // Finalize the MPI environment.
+    MPI_Finalize();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;julia&#34;&gt;Julia&lt;/h2&gt;
+
+&lt;h2 id=&#34;summary-comparison&#34;&gt;Summary comparison&lt;/h2&gt;
 </description>
     </item>
     

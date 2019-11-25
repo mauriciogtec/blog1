@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Mauricio Tec - The Unknot</title>
+    <title>Tags on Mauricio Tec</title>
     <link>https://mauriciogtec.github.io/tags/</link>
-    <description>Recent content in Tags on Mauricio Tec - The Unknot</description>
+    <description>Recent content in Tags on Mauricio Tec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
@@ -27,6 +27,24 @@
       <pubDate>Fri, 21 Dec 2018 22:36:34 -0600</pubDate>
       
       <guid>https://mauriciogtec.github.io/tags/graph-fused-lasso/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Julia</title>
+      <link>https://mauriciogtec.github.io/tags/julia/</link>
+      <pubDate>Fri, 16 Nov 2018 17:23:07 -0600</pubDate>
+      
+      <guid>https://mauriciogtec.github.io/tags/julia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mpi</title>
+      <link>https://mauriciogtec.github.io/tags/mpi/</link>
+      <pubDate>Fri, 16 Nov 2018 17:23:07 -0600</pubDate>
+      
+      <guid>https://mauriciogtec.github.io/tags/mpi/</guid>
       <description></description>
     </item>
     
